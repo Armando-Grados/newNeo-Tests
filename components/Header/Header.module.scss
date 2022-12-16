@@ -1,0 +1,128 @@
+@import "../../styles/variables.module.scss";
+@import "../../styles/mixins.module.scss";
+
+.header {
+  background-color: map-get($color, accent);
+  padding-left: map-get($padding, small-mobile);
+  padding-right: map-get($padding, small-mobile);
+  padding-top: 25px;
+  width: 100%;
+  z-index: 100;
+  position: relative;
+
+  @include breakpoint(widescreen) {
+    justify-content: space-between;
+    padding-left: map-get($padding, tablet);
+    padding-right: map-get($padding, tablet);
+    @include flex-ic;
+
+    &_btn {
+      background-color: transparent;
+      padding: 16px;
+      border: 1px solid #f4f2fa;
+      border-radius: 4px;
+    }
+
+    &_tabs {
+      @include breakpoint(desktop) {
+        display: none;
+      }
+      @include flex-ic;
+
+      &_tab {
+        margin: 0 1.5rem;
+        list-style: none;
+        cursor: pointer;
+        position: relative;
+        @include flex-ic;
+
+        &_down_arrow {
+          @include down-arrow;
+          margin-left: 7px;
+        }
+
+        &_dropdown {
+          position: absolute;
+          left: 0;
+          top: 100%;
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(-1rem);
+          transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+
+          &_active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+            position: absolute;
+            left: 0;
+            top: 100%;
+          }
+
+          &_polygon {
+            z-index: 1;
+          }
+
+          &_menu {
+            margin-top: -1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background-color: white;
+            width: max-content;
+            padding: 1rem;
+            border-radius: 1rem;
+
+            & > li {
+              color: black;
+              list-style: none;
+              padding: 0.5rem;
+              border-radius: 0.5rem;
+              font-weight: bold;
+
+              &:hover {
+                background-color: map-get($color, bg_page);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &_img {
+    &_menu {
+      display: none;
+    }
+
+    &_close {
+      display: none;
+    }
+
+    @include breakpoint(small-mobile) {
+      &_menu {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+
+    &_logo {
+      &_white {
+        @include breakpoint(desktop) {
+          width: 123.33px;
+          height: 40px;
+        }
+
+        @include breakpoint(small-mobile) {
+          width: 55px;
+          height: 18px;
+        }
+      }
+
+      &_black {
+        display: none;
+      }
+    }
+  }
+}

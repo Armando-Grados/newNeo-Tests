@@ -1,105 +1,103 @@
-@import '../../styles/variables.module.scss';
+@import "../../styles/variables.module.scss";
 
 .bcorp {
-    margin-top: 130px;
+  padding: 130px 0;
+  background-color: map-get($color, white);
+  color: map-get($color, primary);
 
-    &_container {
-        padding-left: map-get($padding, mobile);
-        padding-right: map-get($padding, mobile);
-        display: flex;
-        flex-direction: column;
-        gap: 57px;
-        align-items: center;
+  &_container {
+    padding-left: map-get($padding, mobile);
+    padding-right: map-get($padding, mobile);
+    display: flex;
+    flex-direction: column;
+    gap: 57px;
+    align-items: center;
+
+    @include breakpoint(widescreen) {
+      padding-left: map-get($padding, widescreen);
+      padding-right: map-get($padding, widescreen);
+      max-width: map-get($breakpoint, max);
+      margin-left: auto;
+      margin-right: auto;
+      flex-direction: row;
+      gap: 2%;
+    }
+
+    &_left {
+      @include breakpoint(widescreen) {
+        width: 49%;
+      }
+
+      &_title {
+        font-family: "Tiempos Headline Medium";
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
 
         @include breakpoint(widescreen) {
-            padding-left: map-get($padding, widescreen);
-            padding-right: map-get($padding, widescreen);
-            max-width: map-get($breakpoint, max);
-            margin-left: auto;
-            margin-right: auto;
-            flex-direction: row;
-            gap: 2%;
+          font-size: 48px;
+          line-height: 56px;
+          text-align: start;
         }
+      }
 
-        &_left {
-            @include breakpoint(widescreen) {
-                width: 49%;
-            }
+      &_desc {
+        font-family: "Montserrat Medium";
+        font-size: 16px;
+        line-height: 20px;
+        margin-top: 80px;
 
-            &_title {
-                font-family: "Tiempos Headline Medium";
-                font-size: 24px;
-                line-height: 28px;
-                text-align: center;
-
-                @include breakpoint(widescreen) {
-                    font-size: 48px;
-                    line-height: 56px;
-                    text-align: start;
-                }
-            }
-
-            &_desc {
-                font-family: "Montserrat Medium";
-                font-size: 16px;
-                line-height: 20px;
-                margin-top: 80px;
-
-                @include breakpoint(widescreen) {
-                    font-size: 20px;
-                    line-height: 24px;
-                    margin-top: 24px;
-                }
-
-            }
-
-            &_link {
-                font-family: "Montserrat Bold";
-                font-size: 14px;
-                line-height: 16px;
-                margin-top: 40px;
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-
-                @include breakpoint(widescreen) {
-                    font-size: 18px;
-                    line-height: 24px;
-                    margin-top: 32px;
-                }
-
-            }
+        @include breakpoint(widescreen) {
+          font-size: 20px;
+          line-height: 24px;
+          margin-top: 24px;
         }
+      }
 
-        &_right {
-            @include breakpoint(widescreen) {
-                width: 49%;
-            }
+      &_link {
+        font-family: "Montserrat Bold";
+        font-size: 14px;
+        line-height: 16px;
+        margin-top: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
 
-            &_ctn {
-                text-align: center;
-
-                img {
-                    width: 190px;
-                    height: 242.12px;
-                }
-
-                @include breakpoint(widescreen) {
-                    img {
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-
-                @include breakpoint(max) {
-                    img {
-                        width: 600px;
-                        height: 782px;
-
-                    }
-                }
-
-            }
+        @include breakpoint(widescreen) {
+          font-size: 18px;
+          line-height: 24px;
+          margin-top: 32px;
         }
+      }
     }
+
+    &_right {
+      @include breakpoint(widescreen) {
+        width: 49%;
+      }
+
+      &_ctn {
+        text-align: center;
+
+        img {
+          width: 190px;
+          height: 242.12px;
+        }
+
+        @include breakpoint(widescreen) {
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        @include breakpoint(max) {
+          img {
+            width: 600px;
+            height: 782px;
+          }
+        }
+      }
+    }
+  }
 }

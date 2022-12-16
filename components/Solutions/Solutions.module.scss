@@ -1,49 +1,49 @@
 @import "../../styles/variables.module.scss";
 
 .solutions {
-    padding-top: 56px;
-    padding-bottom: 50px;
+  padding-top: 56px;
+  padding-bottom: 50px;
+  background-color: map-get($color, $key: white);
 
-    &_container {
-        padding-left: map-get($padding, mobile);
-        padding-right: map-get($padding, mobile);
+  &_container {
+    padding-left: map-get($padding, mobile);
+    padding-right: map-get($padding, mobile);
 
-        &_title {
-            text-align: center;
-            font-weight: 500;
-            font-size: 24px;
-            line-height: 28px;
-            font-family: 'Tiempos Headline Regular';
-            width: 217px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 25px;
+    &_title {
+      text-align: center;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+      font-family: "Tiempos Headline Regular";
+      width: 217px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 25px;
 
-            @include breakpoint(widescreen) {
-                font-size: 48px;
-                width: 100%;
-                margin-bottom: 48px;
-            }
-
-        }
-
-        &_services {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-
-            @include breakpoint(widescreen) {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 23px;
-            }
-        }
-
-        @include breakpoint(widescreen) {
-            padding-left: map-get($padding, widescreen);
-            padding-right: map-get($padding, widescreen);
-            max-width: map-get($breakpoint, max);
-            margin-left: auto;
-            margin-right: auto;
-        }
+      @include breakpoint(widescreen) {
+        font-size: 48px;
+        width: 100%;
+        margin-bottom: 48px;
+      }
     }
+
+    &_services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+
+      @include breakpoint(widescreen) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 23px;
+      }
+    }
+
+    @include breakpoint(widescreen) {
+      padding-left: map-get($padding, widescreen);
+      padding-right: map-get($padding, widescreen);
+      max-width: map-get($breakpoint, max);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }

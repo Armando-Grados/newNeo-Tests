@@ -1,70 +1,64 @@
-@import '../../styles/variables.module.scss';
+@import "../../styles/variables.module.scss";
 
 .success {
-    background-color: map-get($color , accent);
+  background-color: map-get($color, accent);
 
-    // padding-top: 59px;
-    // padding-bottom: 59px;
-    margin-bottom: map-get($margin , mobile);
+  // padding-top: 59px;
+  // padding-bottom: 59px;
+  padding-bottom: map-get($margin, mobile);
+  @include breakpoint(widescreen) {
+    padding-bottom: map-get($margin, widescreen);
+  }
+
+  &_container {
+    padding-left: map-get($padding, mobile);
+    padding-right: map-get($padding, mobile);
+
     @include breakpoint(widescreen) {
-        margin-bottom: map-get($margin , widescreen);
-
+      padding-left: map-get($padding, widescreen);
+      padding-right: map-get($padding, widescreen);
+      max-width: map-get($breakpoint, max);
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    &_container {
-        padding-left: map-get($padding, mobile);
-        padding-right: map-get($padding, mobile);
+    &_swiper_button {
+      position: absolute;
+      bottom: 40px;
+      z-index: 10;
+      cursor: pointer;
+      color: map-get($color, white);
+
+      @include breakpoint(widescreen) {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      @include breakpoint(max) {
+        bottom: 128px;
+      }
+
+      &_span {
+        display: none;
+        font-family: "Montserrat Bold";
 
         @include breakpoint(widescreen) {
-            padding-left: map-get($padding, widescreen);
-            padding-right: map-get($padding, widescreen);
-            max-width: map-get($breakpoint, max);
-            margin-left: auto;
-            margin-right: auto;
+          font-size: 18px;
+          display: block;
         }
-
-        &_swiper_button {
-            position: absolute;
-            bottom: 40px;
-            z-index: 10;
-            cursor: pointer;
-            color: map-get($color, white);
-
-            @include breakpoint(widescreen) {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
-            @include breakpoint(max) {
-                bottom: 128px;
-
-            }
-
-            &_span {
-                display: none;
-                font-family: 'Montserrat Bold';
-
-                @include breakpoint(widescreen) {
-                    font-size: 18px;
-                    display: block;
-                }
-            }
-        }
+      }
     }
-
-
+  }
 }
 
 .swiper {
-    &_button {
-        &_next_cases {
-            right: 36px;
-
-        }
-
-        &_prev_cases {
-            left: 36px;
-        }
-
+  &_button {
+    &_next_cases {
+      right: 36px;
     }
+
+    &_prev_cases {
+      left: 36px;
+    }
+  }
 }

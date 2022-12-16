@@ -1,0 +1,83 @@
+@import "../../../../styles/variables.module.scss";
+
+.card {
+  width: 239px;
+  border: 0.5px solid #ccccd6;
+  box-shadow: 0px 16px 24px rgba(0, 0, 51, 0.15);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  @include breakpoint(widescreen) {
+    width: 480px;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  &_quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 1rem;
+
+    @include breakpoint(widescreen) {
+      gap: 3rem;
+    }
+
+    & > p {
+      text-align: center;
+      color: map-get($color, accent);
+      font-size: 15px;
+
+      @include breakpoint(widescreen) {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &_client {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+
+    & > img {
+      height: 72px;
+      width: 72px;
+    }
+
+    &_details {
+      font-size: 12px;
+      line-height: 16px;
+
+      @include breakpoint(widescreen) {
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      &_name {
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &_link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+
+    & > span {
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+}

@@ -1,121 +1,114 @@
-@import '../../styles/variables.module.scss';
+@import "../../styles/variables.module.scss";
 
 .team {
-    margin-top: 64px;
-    // padding-bottom: 48px;
-    // position: relative;
-    margin-bottom: map-get($margin , mobile);
+  padding-top: 64px;
+  // padding-bottom: 48px;
+  // position: relative;
+  padding-bottom: map-get($margin, mobile);
+  background-color: map-get($color, white);
+
+  @include breakpoint(widescreen) {
+    padding-bottom: map-get($margin, widescreen);
+  }
+
+  &_container {
+    padding-left: map-get($padding, mobile);
+    padding-right: map-get($padding, mobile);
+    padding-bottom: 48px;
+
+    max-width: map-get($breakpoint, max);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
 
     @include breakpoint(widescreen) {
-        margin-bottom: map-get($margin , widescreen);
+      padding-bottom: 88px;
+
+      // position: relative;
+      padding-left: map-get($padding, widescreen);
+
+      padding-right: map-get($padding, widescreen);
     }
 
-    &_container {
-        padding-left: map-get($padding, mobile);
-        padding-right: map-get($padding, mobile);
-        padding-bottom: 48px;
+    &_title {
+      text-align: center;
+      font-family: "Tiempos Headline Medium";
+      font-size: 24px;
+      line-height: 28px;
+      margin-bottom: 16px;
 
-        max-width: map-get($breakpoint, max);
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
+      @include breakpoint(widescreen) {
+        font-size: 48px;
+        line-height: 56px;
+        margin-bottom: 32px;
+      }
+    }
 
+    &_subtitle {
+      font-family: "Montserrat Medium";
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      margin-bottom: 32px;
+
+      @include breakpoint(widescreen) {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 72px;
+      }
+    }
+
+    &_swiper {
+      &_button {
+        // background-color: red;
+        display: flex;
+        gap: 8px;
+        position: absolute;
+        bottom: 0px;
+        z-index: 10;
+        cursor: pointer;
+        color: map-get($color, accent);
         @include breakpoint(widescreen) {
-            padding-bottom: 88px;
-
-            // position: relative;
-            padding-left: map-get($padding, widescreen);
-
-            padding-right: map-get($padding, widescreen);
-
+          bottom: 32px;
         }
 
-        &_title {
-            text-align: center;
-            font-family: "Tiempos Headline Medium";
-            font-size: 24px;
-            line-height: 28px;
-            margin-bottom: 16px;
+        &_span {
+          display: none;
+          font-family: "Montserrat Bold";
 
-            @include breakpoint(widescreen) {
-                font-size: 48px;
-                line-height: 56px;
-                margin-bottom: 32px;
-            }
-
+          @include breakpoint(widescreen) {
+            font-size: 18px;
+            display: block;
+          }
         }
-
-        &_subtitle {
-            font-family: "Montserrat Medium";
-            font-size: 16px;
-            line-height: 20px;
-            text-align: center;
-            margin-bottom: 32px;
-
-            @include breakpoint(widescreen) {
-                font-size: 20px;
-                line-height: 24px;
-                margin-bottom: 72px;
-            }
-
-
-        }
-
-        &_swiper {
-            &_button {
-                // background-color: red;
-                display: flex;
-                gap: 8px;
-                position: absolute;
-                bottom: 0px;
-                z-index: 10;
-                cursor: pointer;
-                color: map-get($color, accent);
-                @include breakpoint(widescreen) {
-                bottom: 32px;
-
-                }
-
-                &_span {
-                    display: none;
-                    font-family: 'Montserrat Bold';
-
-                    @include breakpoint(widescreen) {
-                        font-size: 18px;
-                        display: block;
-                    }
-                }
-            }
-        }
-
-        &_special {
-            height: 110%;
-            @include breakpoint(widescreen) {
-                height: 532px;
-
-            }
-        }
+      }
     }
+
+    &_special {
+      height: 110%;
+      @include breakpoint(widescreen) {
+        height: 532px;
+      }
+    }
+  }
 }
 
 .swiper {
-    &_button {
+  &_button {
+    &_next_cases {
+      right: 36px;
 
-        &_next_cases {
-            right: 36px;
-
-            @include breakpoint(widescreen) {
-                right: 144px;
-            }
-        }
-
-        &_prev_cases {
-            left: 36px;
-
-            @include breakpoint(widescreen) {
-                left: 144px;
-            }
-        }
+      @include breakpoint(widescreen) {
+        right: 144px;
+      }
     }
-}
 
+    &_prev_cases {
+      left: 36px;
+
+      @include breakpoint(widescreen) {
+        left: 144px;
+      }
+    }
+  }
+}

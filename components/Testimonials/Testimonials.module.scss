@@ -1,0 +1,31 @@
+@import "../../styles/variables.module.scss";
+
+.testimonials {
+  padding-top: 120px;
+  padding-bottom: map-get($margin, mobile);
+  background-color: map-get($color, white);
+  color: map-get($color, primary);
+
+  @include breakpoint(widescreen) {
+    padding-bottom: map-get($margin, widescreen);
+    padding-left: map-get($padding, widescreen);
+    padding-right: map-get($padding, widescreen);
+    max-width: map-get($breakpoint, max);
+  }
+
+  &_title {
+    font-family: "Tiempos Headline";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: map-get($color, primary);
+
+    @include breakpoint(widescreen) {
+      font-size: 40px;
+      line-height: 48px;
+    }
+  }
+}

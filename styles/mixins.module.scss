@@ -1,0 +1,9 @@
+@mixin flex-ic {
+  display: flex;
+  align-items: center;
+}
+
+@mixin down-arrow {
+  width: 24px;
+  height: 24px;
+}
