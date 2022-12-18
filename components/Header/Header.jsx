@@ -1,172 +1,166 @@
 import style from "./Header.module.scss";
+import { useState } from "react";
+
 import logoWhite from "../../public/assets/Logos/logo-white.png";
 import logoBlack from "../../public/assets/Logos/logo-black.png";
 import arrowDown from "../../public/assets/SVGs/Arrow-Down.svg";
-import polygon from "../../public/assets/SVGs/Polygon.svg";
 import menu from "../../public/assets/SVGs/Menu.svg";
 import close from "../../public/assets/SVGs/Close.svg";
-import Link from "next/link";
-import { useState } from "react";
+import Accordion from "./_children/Accordion/Accordion";
+import basket from "../../public/assets/Header/basket.svg";
+import brain from "../../public/assets/Header/brain.svg";
+import consult from "../../public/assets/Header/consult.svg";
+import download from "../../public/assets/Header/download.svg";
+import laptop from "../../public/assets/Header/laptop.svg";
+import nodeUser from "../../public/assets/Header/node-user.svg";
+import rise from "../../public/assets/Header/Rise.svg";
+import stats from "../../public/assets/Header/stats.svg";
+import sync from "../../public/assets/Header/Sync.svg";
+import techInfo from "../../public/assets/Header/tech-info.svg";
+import window from "../../public/assets/Header/window.svg";
+import videoChat from "../../public/assets/Header/video-chat-line.svg";
+import uuid from "react-uuid";
 
 const Header = () => {
-  const [showDropdown1, setShowDropdown1] = useState(false);
-  const [showDropdown2, setShowDropdown2] = useState(false);
-  const [showDropdown3, setShowDropdown3] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const AccordionData = [
+    {
+      title: "Servicios",
+      ul: [
+        {
+          link: "#",
+          text: "Canales digitales y Growth Haking",
+          icon: laptop.src,
+        },
+        { link: "#", text: "E-commerce", icon: basket.src },
+        { link: "#", text: "Headhunting y Mentoring", icon: nodeUser.src },
+        { link: "#", text: "Consultoría CRM", icon: consult.src },
+        {
+          link: "#",
+          text: "Analítica Digital e Inteligencia Artificial",
+          icon: rise.src,
+        },
+        { link: "#", text: "Diseño de experiencia", icon: sync.src },
+        { link: "#", text: "Publicidad Digital", icon: stats.src },
+        { link: "#", text: "Marketing Automation", icon: techInfo.src },
+      ],
+    },
+    {
+      title: "Productos",
+      ul: [
+        {
+          link: "#",
+          text: "Neo Digital Skills",
+          icon: brain.src,
+        },
+        { link: "#", text: "Otros", icon: window.src },
+      ],
+    },
+    {
+      title: "Recorsos",
+      ul: [
+        {
+          link: "#",
+          text: "Descargables",
+          icon: download.src,
+        },
+        { link: "#", text: "Webinnars", icon: videoChat.src },
+      ],
+    },
+    { title: "Casos de éxito" },
+    { title: "Blog" },
+  ];
 
   return (
     <header className={style.header}>
-      <div className={style.header_img}>
-        <img src={menu.src} alt="menu" className={style.header_img_menu} />
-
-        <div className={style.header_img_logo}>
-          <img
-            src={logoWhite.src}
-            alt="Logo"
-            className={style.header_img_logo_white}
-          />
-          <img
-            src={logoBlack.src}
-            alt="Logo"
-            className={style.header_img_logo_black}
-          />
+      <div className={style.header_base}>
+        <div className={style.header_base_left}>
+          <button onClick={() => setShowMobileMenu(true)}>
+            <img
+              src={menu.src}
+              alt="menu"
+              className={style.header_base_left_menu}
+            />
+          </button>
+          <a href="#">
+            <img
+              src={logoWhite.src}
+              alt="neo"
+              className={style.header_base_left_logo}
+            />
+          </a>
         </div>
-        <img src={close.src} alt="close" className={style.header_img_close} />
+
+        <ul className={style.header_base_menu}>
+          {AccordionData.map((menu) => (
+            <li key={uuid()} className={style.header_base_menu_item}>
+              <a href="#">{menu.title}</a>
+
+              {menu.ul ? <img src={arrowDown.src} alt="arrow down" /> : ""}
+
+              <ul
+                className={style.header_base_menu_item_dropdown}
+                style={menu.ul ? {} : { display: "none" }}
+              >
+                {menu.ul?.map((item) => (
+                  <li
+                    className={style.header_base_menu_item_dropdown_item}
+                    key={uuid()}
+                  >
+                    <img src={item.icon} alt={item.text} />
+                    <a href={item.link}>{item.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          className={style.header_base_right}
+          onClick={() => setShowMobileMenu(true)}
+        >
+          <a href="#">Contáctanos</a>
+        </button>
       </div>
 
-      <ul className={style.header_tabs}>
-        <li
-          className={style.header_tabs_tab}
-          onClick={() => {
-            setShowDropdown1(!showDropdown1);
-            setShowDropdown2(false);
-            setShowDropdown3(false);
-          }}
-          id="dropdown1"
-        >
-          <span>Servicios</span>
+      <div
+        className={style.header_mobile_active}
+        style={
+          showMobileMenu
+            ? { transform: "translateX(0)" }
+            : { transform: "translateX(-100%)" }
+        }
+      >
+        <div className={style.header_mobile_active_head}>
           <img
-            src={arrowDown.src}
-            alt="arrow down"
-            className={style.header_tabs_tab_down_arrow}
+            className={style.header_mobile_active_head_logo}
+            src={logoBlack.src}
+            alt="neo"
           />
-          <div
-            className={
-              showDropdown1
-                ? style.header_tabs_tab_dropdown_active
-                : style.header_tabs_tab_dropdown
-            }
-          >
-            <div className={style.header_tabs_tab_dropdown_polygon}>
-              <img src={polygon.src} alt="polygon" />
-            </div>
-            <ul className={style.header_tabs_tab_dropdown_menu}>
-              <li>
-                <Link href="#">Canales digitales y Growth Haking</Link>
-              </li>
-              <li>
-                <Link href="#">E-commerce</Link>
-              </li>
-              <li>
-                <Link href="#">Headhunting y Mentoring</Link>
-              </li>
-              <li>
-                <Link href="#">Consultoría CRM</Link>
-              </li>
-              <li>
-                <Link href="#">
-                  Analítica Digital e Inteligencia Artificial
-                </Link>
-              </li>
-              <li>
-                <Link href="#">Diseño de experiencia</Link>
-              </li>
-              <li>
-                <Link href="#">Publicidad digital</Link>
-              </li>
-              <li>
-                <Link href="#">Marketing Automation</Link>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li
-          className={style.header_tabs_tab}
-          onClick={() => {
-            setShowDropdown1(false);
-            setShowDropdown2(!showDropdown2);
-            setShowDropdown3(false);
-          }}
-          id="dropdown2"
-        >
-          <span>Productos</span>
-          <img
-            src={arrowDown.src}
-            alt="arrow down"
-            className={style.header_tabs_tab_down_arrow}
-          />
-          <div
-            className={
-              showDropdown2
-                ? style.header_tabs_tab_dropdown_active
-                : style.header_tabs_tab_dropdown
-            }
-          >
-            <div className={style.header_tabs_tab_dropdown_polygon}>
-              <img src={polygon.src} alt="polygon" />
-            </div>
-            <ul className={style.header_tabs_tab_dropdown_menu}>
-              <li>
-                <Link href="#">Neo Digital Skills</Link>
-              </li>
-              <li>
-                <Link href="#">Otros</Link>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li
-          className={style.header_tabs_tab}
-          onClick={() => {
-            setShowDropdown1(false);
-            setShowDropdown2(false);
-            setShowDropdown3(!showDropdown3);
-          }}
-          id="dropdown3"
-        >
-          <span>Recursos</span>
-          <img
-            src={arrowDown.src}
-            alt="arrow down"
-            className={style.header_tabs_tab_down_arrow}
-          />
-          <div
-            className={
-              showDropdown3
-                ? style.header_tabs_tab_dropdown_active
-                : style.header_tabs_tab_dropdown
-            }
-          >
-            <div className={style.header_tabs_tab_dropdown_polygon}>
-              <img src={polygon.src} alt="polygon" />
-            </div>
-            <ul className={style.header_tabs_tab_dropdown_menu}>
-              <li>
-                <Link href="#">Descargables</Link>
-              </li>
-              <li>
-                <Link href="#">Webinnars</Link>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li className={style.header_tabs_tab}>Casos de éxito</li>
-        <li className={style.header_tabs_tab}>Blog</li>
-      </ul>
 
-      <div>
-        <Link className={style.header_btn} href={"/contact"}>
-          Contáctanos
-        </Link>
+          <button
+            className={style.header_mobile_active_head_close}
+            onClick={() => {
+              setShowMobileMenu(false);
+            }}
+          >
+            <img src={close.src} alt="close" />
+          </button>
+        </div>
+
+        <div className={style.header_mobile_active_body}>
+          <Accordion data={AccordionData} />
+          {/* <ul className={style.header_mobile_active_body_menu}>
+            <li className={style.header_mobile_active_body_menu_item}>
+              <a href="#">Casos de éxito</a>
+            </li>
+            <li className={style.header_mobile_active_body_menu_item}>
+              <a href="#">Blog</a>
+            </li>
+          </ul> */}
+        </div>
       </div>
     </header>
   );

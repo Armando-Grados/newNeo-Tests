@@ -1,4 +1,4 @@
-@import '/styles/variables.module.scss';
+@import "/styles/variables.module.scss";
 
 @font-face {
   font-family: "Montserrat Regular";
@@ -25,21 +25,24 @@
   font-family: "Tiempos Headline Regular";
   font-weight: 400;
   src: local("Tiempos Headline Regular"),
-    url(../public/fonts/tiemposheadline/TiemposHeadline-Regular.woff2) format("woff2");
+    url(../public/fonts/tiemposheadline/TiemposHeadline-Regular.woff2)
+      format("woff2");
 }
 
 @font-face {
   font-family: "Tiempos Headline Medium";
   font-weight: 500;
   src: local("Tiempos Headline Medium"),
-    url(../public/fonts/tiemposheadline/TiemposHeadline-Medium.ttf) format("truetype");
+    url(../public/fonts/tiemposheadline/TiemposHeadline-Medium.ttf)
+      format("truetype");
 }
 
 @font-face {
   font-family: "Tiempos Headline Bold";
   font-weight: 500;
   src: local("Tiempos Headline Bold"),
-    url(../public/fonts/tiemposheadline/TiemposHeadline-Bold.woff) format("woff");
+    url(../public/fonts/tiemposheadline/TiemposHeadline-Bold.woff)
+      format("woff");
 }
 
 html,
@@ -58,7 +61,6 @@ h5,
 h6 {
   font-size: inherit;
   font-weight: inherit;
-
 }
 
 a {
@@ -114,15 +116,12 @@ button {
     width: 54px !important;
     height: 8px !important;
   }
-
 }
 
 //global disabled
 .swiper-button-disabled {
   opacity: 0.5;
 }
-
-
 
 //casos de exito
 .swiper-pagination-cde {
@@ -160,10 +159,13 @@ button {
   }
 }
 
-
-.swiper-slide{
-  opacity: .6;
+.swiper-slide {
+  opacity: 0.6;
 }
-.swiper-slide-active{
+.swiper-slide-active {
   opacity: 1;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

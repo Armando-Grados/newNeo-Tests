@@ -1,0 +1,91 @@
+@import "../../../../styles/variables.module.scss";
+
+.accordion {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+
+  @include breakpoint(widescreen) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &_container {
+    width: 100%;
+    border-bottom: 1px solid map-get($color, disabled);
+
+    @include breakpoint(widescreen) {
+      border: 0;
+      width: fit-content;
+    }
+
+    &_title {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+
+      @include breakpoint(widescreen) {
+        margin-bottom: 1rem;
+      }
+
+      & span {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      &_icon {
+        @include breakpoint(widescreen) {
+          display: none;
+        }
+
+        &_show {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &_menu {
+      display: flex;
+      gap: 0.5rem;
+      flex-direction: column;
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 600ms ease-in-out;
+      margin-bottom: 0.5rem;
+
+      @include breakpoint(widescreen) {
+        height: auto;
+        opacity: 1;
+      }
+
+      & a {
+        font-size: 12px;
+        line-height: 16px;
+        list-style: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        @include breakpoint(widescreen) {
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+.show {
+  transition: all 1s ease-in-out;
+  height: auto;
+  opacity: 1;
+}

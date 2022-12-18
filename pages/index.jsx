@@ -12,6 +12,8 @@ import Trust from "../components/Companies/Trust/Trust";
 import Questions from "../components/Questions/Questions";
 import { questionsHome } from "../utilities/home/questions";
 import Testimonials from "../components/Testimonials/Testimonials";
+import Content from "../components/Content/Content";
+import Footer from "../components/Footer/Footer";
 
 const index = () => {
   return (
@@ -21,12 +23,14 @@ const index = () => {
       <Solutions />
       <Partners />
       <SuccessCase />
-      {/* <Testimonials /> */}
+      <Testimonials />
       <Trust />
       <Region />
       <Bcorp />
       <Questions questions={questionsHome} />
       <Contact />
+      <Content />
+      <Footer />
     </div>
   );
 };

@@ -33,17 +33,10 @@
     width: 100%;
     display: flex;
     gap: 40px;
-    overflow-x: scroll;
-    align-items: center;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    overflow: scroll;
 
     @include breakpoint(tablet) {
       justify-content: space-between;
-    }
-
-    &::-webkit-scrollbar {
-      display: none;
     }
 
     &_img > img {

@@ -1,0 +1,195 @@
+@import "../../styles/variables.module.scss";
+@import "../../styles/mixins.module.scss";
+
+.footer {
+  padding: map-get($padding, mobile);
+  background-color: map-get($color, white);
+  color: map-get($color, primary);
+  width: 100%;
+
+  @include breakpoint(widescreen) {
+    padding: 0 map-get($padding, widescreen);
+  }
+
+  &_top {
+    padding-bottom: map-get($padding, mobile);
+
+    @include breakpoint(widescreen) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    &_social {
+      width: 100%;
+      position: relative;
+      padding: 2rem map-get($padding, mobile);
+
+      @include breakpoint(widescreen) {
+        width: fit-content;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      & h5 {
+        @include footer-heading;
+      }
+
+      &_icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+
+        & img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+
+    &_awards {
+      width: 100%;
+      position: relative;
+      padding: 2rem map-get($padding, mobile);
+      padding-top: 0;
+
+      @include breakpoint(widescreen) {
+        width: fit-content;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      & h5 {
+        @include footer-heading;
+      }
+
+      &_images {
+        display: flex;
+        align-items: flex-start;
+        gap: 10.82px;
+
+        & img {
+          height: 97.34px;
+
+          @include breakpoint(widescreen) {
+            height: 144px;
+          }
+        }
+      }
+    }
+
+    &_partners {
+      width: 100%;
+      position: relative;
+      padding: 2rem map-get($padding, mobile);
+      padding-top: 0;
+
+      @include breakpoint(widescreen) {
+        width: fit-content;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      & h5 {
+        @include footer-heading;
+      }
+
+      &_images {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 0;
+        flex-wrap: wrap;
+
+        @include breakpoint(widescreen) {
+          gap: 4rem;
+        }
+
+        & img {
+          height: 40px;
+        }
+      }
+    }
+
+    &_afiliations {
+      width: 100%;
+      position: relative;
+      padding: 2rem map-get($padding, mobile);
+      padding-top: 0;
+
+      @include breakpoint(widescreen) {
+        width: fit-content;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      & h5 {
+        @include footer-heading;
+      }
+
+      &_images {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+
+        & img {
+          width: 80px;
+        }
+      }
+    }
+
+    &_border {
+      width: 100%;
+      border-bottom: 1px solid map-get($color, primary);
+      padding-top: 2.5rem;
+    }
+  }
+
+  &_bottom {
+    padding: map-get($padding, mobile);
+    width: 100%;
+    position: relative;
+
+    @include breakpoint(widescreen) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    & p {
+      font-size: 12px;
+      line-height: 16px;
+      text-align: center;
+
+      @include breakpoint(widescreen) {
+        display: none;
+      }
+    }
+
+    &_images {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 1rem;
+
+      & img {
+        width: 5rem;
+
+        @include breakpoint(widescreen) {
+          width: 6rem;
+        }
+      }
+
+      & p {
+        display: none;
+
+        @include breakpoint(widescreen) {
+          display: block;
+        }
+      }
+    }
+  }
+}

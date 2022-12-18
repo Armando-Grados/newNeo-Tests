@@ -1,39 +1,54 @@
 @import "../../styles/variables.module.scss";
 
-.testimonials {
-  padding: 0 map-get($padding, mobile);
-  padding-top: 5rem;
+.content {
   background-color: map-get($color, white);
+  padding: map-get($margin, mobile) 0;
   color: map-get($color, primary);
 
   @include breakpoint(widescreen) {
-    padding-top: map-get($margin, widescreen);
-    padding-bottom: 0;
-    padding-left: map-get($padding, widescreen);
-    padding-right: map-get($padding, widescreen);
-    max-width: map-get($breakpoint, max);
+    padding: map-get($margin, widescreen) 0;
   }
 
-  &_title {
-    font-family: "Tiempos Headline";
-    font-style: normal;
-    font-weight: 600;
+  &_heading {
+    font-weight: bold;
     font-size: 24px;
     line-height: 28px;
     text-align: center;
-    margin-bottom: 40px;
+    width: 100%;
     color: map-get($color, primary);
+    margin-bottom: 40px;
+    font-family: "Tiempos Headline";
+    font-style: normal;
+    font-weight: 500;
 
     @include breakpoint(widescreen) {
-      font-size: 40px;
-      line-height: 48px;
+      font-size: 48px;
+      line-height: 56px;
     }
   }
 
   &_container {
+    padding-left: map-get($padding, mobile);
+    padding-right: map-get($padding, mobile);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin: 0 auto;
+    overflow: scroll;
+
+    @include breakpoint(widescreen) {
+      padding-left: map-get($padding, widescreen);
+      padding-right: map-get($padding, widescreen);
+      max-width: map-get($breakpoint, max);
+      margin-left: auto;
+      margin-right: auto;
+      gap: 2rem;
+    }
+
     &_swiper_button {
       position: absolute;
-      bottom: 0;
+      bottom: 40px;
       z-index: 10;
       cursor: pointer;
       color: map-get($color, accent);
@@ -42,7 +57,6 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        bottom: 20px;
       }
       @include breakpoint(max) {
         bottom: 128px;
@@ -62,19 +76,14 @@
 }
 
 .swiper {
+  width: fit-content;
   &_button {
-    &_next {
+    &_next_cases {
       right: 36px;
     }
 
-    &_prev {
+    &_prev_cases {
       left: 36px;
     }
   }
-}
-
-.centeralised_slider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
