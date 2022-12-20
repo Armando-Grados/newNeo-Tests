@@ -67,7 +67,8 @@
 
       &_images {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
         gap: 10.82px;
 
         & img {

@@ -21,7 +21,11 @@ const Accordion = ({ data }) => {
             className={style.accordion_container_title}
             onClick={() => toggle(i)}
           >
-            <span>{content.title}</span>
+            {content.link ? (
+              <a href={content.link}>{content.title}</a>
+            ) : (
+              <span>{content.title}</span>
+            )}
             {content.ul ? (
               <img
                 src={arrowDown.src}
@@ -47,19 +51,21 @@ const Accordion = ({ data }) => {
             }`}
           >
             {content.ul?.map((li) => (
-              <li key={uuid()} className={style.accordion_container_menu_item}>
-                <img
-                  src={li.icon}
-                  alt={li.text}
-                  className={style.accordion_container_menu_item_icon}
-                />
-                <a
-                  href={li.link}
-                  className={style.accordion_container_menu_item_link}
+              <a href={li.link}>
+                <li
+                  key={uuid()}
+                  className={style.accordion_container_menu_item}
                 >
-                  {li.text}
-                </a>
-              </li>
+                  <img
+                    src={li.icon}
+                    alt={li.text}
+                    className={style.accordion_container_menu_item_icon}
+                  />
+                  <span className={style.accordion_container_menu_item_link}>
+                    {li.text}
+                  </span>
+                </li>
+              </a>
             ))}
           </ul>
         </div>

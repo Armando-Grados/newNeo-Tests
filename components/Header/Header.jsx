@@ -68,8 +68,8 @@ const Header = () => {
         { link: "#", text: "Webinnars", icon: videoChat.src },
       ],
     },
-    { title: "Casos de éxito" },
-    { title: "Blog" },
+    { title: "Casos de éxito", link: "#" },
+    { title: "Blog", link: "#" },
   ];
 
   return (
@@ -104,13 +104,15 @@ const Header = () => {
                 style={menu.ul ? {} : { display: "none" }}
               >
                 {menu.ul?.map((item) => (
-                  <li
-                    className={style.header_base_menu_item_dropdown_item}
-                    key={uuid()}
-                  >
-                    <img src={item.icon} alt={item.text} />
-                    <a href={item.link}>{item.text}</a>
-                  </li>
+                  <a href={item.link}>
+                    <li
+                      className={style.header_base_menu_item_dropdown_item}
+                      key={uuid()}
+                    >
+                      <img src={item.icon} alt={item.text} />
+                      <span>{item.text}</span>
+                    </li>
+                  </a>
                 ))}
               </ul>
             </li>
