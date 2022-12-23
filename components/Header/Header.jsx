@@ -95,7 +95,7 @@ const Header = () => {
         <ul className={style.header_base_menu}>
           {AccordionData.map((menu) => (
             <li key={uuid()} className={style.header_base_menu_item}>
-              <a href="#">{menu.title}</a>
+              <a href={menu.link}>{menu.title}</a>
 
               {menu.ul ? <img src={arrowDown.src} alt="arrow down" /> : ""}
 
@@ -104,7 +104,7 @@ const Header = () => {
                 style={menu.ul ? {} : { display: "none" }}
               >
                 {menu.ul?.map((item) => (
-                  <a href={item.link}>
+                  <a href={item.link} key={uuid()}>
                     <li
                       className={style.header_base_menu_item_dropdown_item}
                       key={uuid()}
