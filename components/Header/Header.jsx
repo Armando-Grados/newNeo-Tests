@@ -104,7 +104,7 @@ const Header = () => {
                 style={menu.ul ? {} : { display: "none" }}
               >
                 {menu.ul?.map((item) => (
-                  <a href={item.link} key={uuid()}>
+                  <a href={item.link} key={uuid()} target="_blank">
                     <li
                       className={style.header_base_menu_item_dropdown_item}
                       key={uuid()}
@@ -154,14 +154,6 @@ const Header = () => {
 
         <div className={style.header_mobile_active_body}>
           <Accordion data={AccordionData} />
-          {/* <ul className={style.header_mobile_active_body_menu}>
-            <li className={style.header_mobile_active_body_menu_item}>
-              <a href="#">Casos de éxito</a>
-            </li>
-            <li className={style.header_mobile_active_body_menu_item}>
-              <a href="#">Blog</a>
-            </li>
-          </ul> */}
         </div>
       </div>
     </header>

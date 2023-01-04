@@ -51,7 +51,7 @@ const Accordion = ({ data }) => {
             }`}
           >
             {content.ul?.map((li) => (
-              <a href={li.link} key={uuid()}>
+              <a href={li.link} key={uuid()} target="_blank">
                 <li className={style.accordion_container_menu_item}>
                   <img
                     src={li.icon}

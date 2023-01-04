@@ -5,23 +5,26 @@ const Card = ({ content }) => {
   return (
     <div className={style.card}>
       <div className={style.card_img}>
-        <img src={content.img} alt={content.title} />
+        <img
+          src={content.reportes.data.opengraph}
+          alt={content.reportes.data.titleMeta}
+        />
       </div>
 
       <div className={style.card_content}>
         <div className={style.card_content_data}>
-          <p className={style.card_content_data_subtitle}>{content.subtitle}</p>
-          <p className={style.card_content_data_title}>{content.title}</p>
-          <p className={style.card_content_data_desc}>{content.description}</p>
+          <p className={style.card_content_data_subtitle}>
+            {content.reportes.data.categoria}
+          </p>
+          <p className={style.card_content_data_title}>
+            {content.reportes.data.titulo}
+          </p>
+          <p className={style.card_content_data_desc}>
+            {content.reportes.data.descripcionMeta}
+          </p>
 
           <div className={style.card_content_tags}>
-            {content.tags.map((tag, i) => {
-              return (
-                <p key={i} className={style.tag}>
-                  {tag}
-                </p>
-              );
-            })}
+            <p className={style.tag}>{content.reportes.data.rubro}</p>
           </div>
         </div>
         <button className={style.card_button}>
