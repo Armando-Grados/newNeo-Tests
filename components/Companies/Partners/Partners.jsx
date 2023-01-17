@@ -1,9 +1,7 @@
-import aws from '../../../public/assets/Partners/aws.png'
-import googleCloud from '../../../public/assets/Partners/google-cloud.png'
-import googleMarkettingPlatform from '../../../public/assets/Partners/google-marketing-platform.png'
-import hubspot from '../../../public/assets/Partners/hubspot.png'
-import salesforce from '../../../public/assets/Partners/salesforce.png'
-import style from '../Companies.module.scss'
+import style from "../Companies.module.scss";
+import ImageCard from "../_children/ImageCard";
+import { partnerComps } from "../../../utilities/home/Companies";
+import uuid from "react-uuid";
 
 const Partners = () => {
   return (
@@ -11,26 +9,14 @@ const Partners = () => {
       <h2 className={style.companies_title}>Somos Partners</h2>
 
       <div className={style.companies_container}>
-        <div className={style.companies_container_img}>
-          <img src={aws.src} alt='aws' />
-        </div>
-        <div className={style.companies_container_img}>
-          <img src={googleCloud.src} alt='googleCloud' />
-        </div>
-        <div className={style.companies_container_img}>
-          <img
-            src={googleMarkettingPlatform.src}
-            alt='googleMarkettingPlatform'
-          />
-        </div>
-        <div className={style.companies_container_img}>
-          <img src={hubspot.src} alt='hubspot' />
-        </div>
-        <div className={style.companies_container_img}>
-          <img src={salesforce.src} alt='salesforce' />
+        <div className={style.companies_container}>
+          {partnerComps.map((comp) => (
+            <ImageCard company={comp} key={uuid()} />
+          ))}
         </div>
       </div>
     </div>
-  )
-}
-export default Partners
+  );
+};
+
+export default Partners;
