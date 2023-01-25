@@ -21,7 +21,7 @@ import window from "../../public/assets/Header/window.svg";
 import videoChat from "../../public/assets/Header/video-chat-line.svg";
 import uuid from "react-uuid";
 
-const Header = () => {
+const Header = ({ scrolled }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const AccordionData = [
@@ -73,19 +73,21 @@ const Header = () => {
   ];
 
   return (
-    <header className={style.header}>
+    <header className={`${style.header} ${scrolled && style.header_scrolled}`}>
       <div className={style.header_base}>
         <div className={style.header_base_left}>
           <button onClick={() => setShowMobileMenu(true)}>
             <img
               src={menu.src}
               alt="menu"
-              className={style.header_base_left_menu}
+              className={`${style.header_base_left_menu} ${
+                scrolled && style.header_scrolled_base_left_menu
+              }`}
             />
           </button>
           <a href="#">
             <img
-              src={logoWhite.src}
+              src={scrolled ? logoBlack.src : logoWhite.src}
               alt="neo"
               className={style.header_base_left_logo}
             />
@@ -94,7 +96,12 @@ const Header = () => {
 
         <ul className={style.header_base_menu}>
           {AccordionData.map((menu) => (
-            <li key={uuid()} className={style.header_base_menu_item}>
+            <li
+              key={uuid()}
+              className={`${style.header_base_menu_item} ${
+                scrolled && style.header_scrolled_base_menu_item
+              }`}
+            >
               <a href={menu.link}>{menu.title}</a>
 
               {menu.ul ? <img src={arrowDown.src} alt="arrow down" /> : ""}
@@ -120,7 +127,9 @@ const Header = () => {
         </ul>
 
         <button
-          className={style.header_base_right}
+          className={`${style.header_base_right} ${
+            scrolled && style.header_scrolled_base_right
+          }`}
           onClick={() => setShowMobileMenu(true)}
         >
           <a href="#">Contáctanos</a>

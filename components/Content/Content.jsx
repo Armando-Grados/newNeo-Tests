@@ -6,16 +6,18 @@ import { useEffect, useState } from "react";
 const Content = () => {
   const [contents, setContents] = useState([]);
 
-  console.log(contents);
-
   useEffect(() => {
     const getContent = async () => {
-      const res = await fetch(
-        "https://us-central1-blog-neo.cloudfunctions.net/app/reportes/getReportesFiltred"
-      );
+      try {
+        const res = await fetch(
+          "https://us-central1-blog-neo.cloudfunctions.net/app/reportes/getReportesFiltred"
+        );
 
-      const data = await res.json();
-      setContents(data.slice(0, 3));
+        const data = await res.json();
+        setContents(data.slice(0, 3));
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     getContent();

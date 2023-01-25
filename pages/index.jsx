@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
@@ -16,9 +16,28 @@ import Content from "../components/Content/Content";
 import Footer from "../components/Footer/Footer";
 
 const index = () => {
+  const [scrolled, setScrolled] = useState(false);
+  console.log(scrolled);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleScroll = (e) => {
+        const scrollY = window.scrollY;
+
+        if (scrollY > 0) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+    }
+  }, []);
+
   return (
     <div>
-      <Header />
+      <Header scrolled={scrolled} />
       <Hero />
       <Solutions />
       <Partners />
