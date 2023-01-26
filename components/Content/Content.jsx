@@ -2,9 +2,10 @@ import style from "./Content.module.scss";
 import { contentHome } from "../../utilities/home/content";
 import Card from "./_children/Card/Card.jsx";
 import { useEffect, useState } from "react";
+import uuid from "react-uuid";
 
 const Content = () => {
-  const [contents, setContents] = useState([]);
+  /* const [contents, setContents] = useState([]);
 
   useEffect(() => {
     const getContent = async () => {
@@ -21,7 +22,7 @@ const Content = () => {
     };
 
     getContent();
-  }, []);
+  }, []); */
 
   return (
     <div className={style.content}>
@@ -31,8 +32,8 @@ const Content = () => {
         {/* {contentHome.map((content, i) => {
           return <Card content={content} key={i} />;
         })} */}
-        {contents.map((content) => (
-          <Card content={content} key={content.id} />
+        {contentHome.map((content) => (
+          <Card content={content} key={uuid()} />
         ))}
       </div>
     </div>

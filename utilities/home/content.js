@@ -9,8 +9,8 @@ export const contentHome = [
     title: "Título del contenido",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit elementum nisl sed donec. Egestas ullamcorper elit laoreet nibh tristique bibendum commodo velit. ",
-    tags: ["tag"],
-    url: "#",
+    tag: "tag",
+    link: "#",
   },
   {
     img: card2.src,
@@ -18,8 +18,8 @@ export const contentHome = [
     title: "Título del contenido",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit elementum nisl sed donec. Egestas ullamcorper elit laoreet nibh tristique bibendum commodo velit. ",
-    tags: ["tag"],
-    url: "#",
+    tag: "tag",
+    link: "#",
   },
   {
     img: card3.src,
@@ -27,7 +27,7 @@ export const contentHome = [
     title: "Título del contenido",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit elementum nisl sed donec. Egestas ullamcorper elit laoreet nibh tristique bibendum commodo velit. ",
-    tags: ["tag"],
-    url: "#",
+    tag: "tag",
+    link: "#",
   },
 ];

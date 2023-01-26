@@ -15,6 +15,9 @@
   &_scrolled {
     background-color: map-get($color, white);
     color: map-get($color, primary);
+    -webkit-box-shadow: 10px 2px 20px 0px rgba(68, 68, 68, 0.5);
+    -moz-box-shadow: 10px 2px 20px 0px rgba(68, 68, 68, 0.5);
+    box-shadow: 10px 2px 20px 0px rgba(68, 68, 68, 0.5);
 
     &_base {
       &_left_menu {
