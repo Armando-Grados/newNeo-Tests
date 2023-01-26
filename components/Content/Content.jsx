@@ -1,10 +1,8 @@
 import style from "./Content.module.scss";
-import { contentHome } from "../../utilities/home/content";
 import Card from "./_children/Card/Card.jsx";
-import { useEffect, useState } from "react";
 import uuid from "react-uuid";
 
-const Content = () => {
+const Content = ({ contents }) => {
   /* const [contents, setContents] = useState([]);
 
   useEffect(() => {
@@ -32,7 +30,7 @@ const Content = () => {
         {/* {contentHome.map((content, i) => {
           return <Card content={content} key={i} />;
         })} */}
-        {contentHome.map((content) => (
+        {contents.map((content) => (
           <Card content={content} key={uuid()} />
         ))}
       </div>

@@ -14,10 +14,10 @@ import { questionsHome } from "../utilities/home/questions";
 import Testimonials from "../components/Testimonials/Testimonials";
 import Content from "../components/Content/Content";
 import Footer from "../components/Footer/Footer";
+import { contentHome } from "../utilities/home/content";
 
 const index = () => {
   const [scrolled, setScrolled] = useState(false);
-  console.log(scrolled);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -48,7 +48,7 @@ const index = () => {
       <Bcorp />
       <Questions questions={questionsHome} />
       <Contact />
-      <Content />
+      <Content contents={contentHome} />
       <Footer />
     </div>
   );
