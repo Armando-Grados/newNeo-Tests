@@ -26,24 +26,25 @@ const Content = ({ contents }) => {
   }, []); */
 
   return (
-    <motion.div
-      className={style.content}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.1 }}
-      variants={fadeIn("up", "tween", 0, 1)}
-    >
-      <h1 className={style.content_heading}>Contenido para ti</h1>
+    <div className={style.content}>
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={fadeIn("up", "tween", 0, 1)}
+      >
+        <h1 className={style.content_heading}>Contenido para ti</h1>
 
-      <div className={style.content_container}>
-        {/* {contentHome.map((content, i) => {
+        <div className={style.content_container}>
+          {/* {contentHome.map((content, i) => {
           return <Card content={content} key={i} />;
         })} */}
-        {contents.map((content) => (
-          <Card content={content} key={uuid()} />
-        ))}
-      </div>
-    </motion.div>
+          {contents.map((content) => (
+            <Card content={content} key={uuid()} />
+          ))}
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

@@ -76,81 +76,78 @@ const Footer = () => {
   ];
 
   return (
-    <motion.footer
-      className={style.footer}
-      variants={footerVariants}
-      initial="hidden"
-      whileInView="show"
-    >
-      <div className={style.footer_top}>
-        <Accordion data={AccordionData} />
+    <footer className={style.footer}>
+      <motion.div variants={footerVariants} initial="hidden" whileInView="show">
+        <div className={style.footer_top}>
+          <Accordion data={AccordionData} />
 
-        <div className={style.footer_top_social}>
-          <h5>Redes sociales</h5>
-          <div className={style.footer_top_social_icons}>
-            <a href="#">
-              <img src={yt.src} alt={"yt"} />
-            </a>
-            <a href="#">
-              <img src={fb.src} alt={"fb"} />
-            </a>
-            <a href="#">
-              <img src={linkedin.src} alt={"linkedin"} />
-            </a>
-            <a href="#">
-              <img src={insta.src} alt={"insta"} />
-            </a>
+          <div className={style.footer_top_social}>
+            <h5>Redes sociales</h5>
+            <div className={style.footer_top_social_icons}>
+              <a href="#">
+                <img src={yt.src} alt={"yt"} />
+              </a>
+              <a href="#">
+                <img src={fb.src} alt={"fb"} />
+              </a>
+              <a href="#">
+                <img src={linkedin.src} alt={"linkedin"} />
+              </a>
+              <a href="#">
+                <img src={insta.src} alt={"insta"} />
+              </a>
+            </div>
           </div>
+
+          <div className={style.footer_top_awards}>
+            <h5>Premios y reconocimientos</h5>
+            <div className={style.footer_top_awards_images}>
+              <img src={eccom2020.src} alt="eccom2020" />
+              <img src={eccom2021.src} alt="eccom2021" />
+              <img src={empresa.src} alt="empresa" />
+            </div>
+          </div>
+
+          <div className={style.footer_top_partners}>
+            <h5>Somos Partners</h5>
+            <div className={style.footer_top_partners_images}>
+              <img src={googleCloud.src} alt="googleCloud" />
+              <img
+                src={googleMarketingPlatform.src}
+                alt="googleMarketingPlatform"
+              />
+              <img src={salesforce.src} alt="salesforce" />
+              <img src={aws.src} alt="aws" />
+              <img src={hubspot.src} alt="hubspot" />
+            </div>
+          </div>
+
+          <div className={style.footer_top_afiliations}>
+            <h5>Afiliaciones</h5>
+            <div className={style.footer_top_afiliations_images}>
+              <img src={afiliation.src} alt="afiliation" />
+            </div>
+          </div>
+
+          <div className={style.footer_top_border}></div>
         </div>
 
-        <div className={style.footer_top_awards}>
-          <h5>Premios y reconocimientos</h5>
-          <div className={style.footer_top_awards_images}>
-            <img src={eccom2020.src} alt="eccom2020" />
-            <img src={eccom2021.src} alt="eccom2021" />
-            <img src={empresa.src} alt="empresa" />
+        <div className={style.footer_bottom}>
+          <div className={style.footer_bottom_images}>
+            <img src={logoNeo.src} alt="neo" />
+            <p>
+              © 2022 NEO Consulting - Todos los derechos reservados | Política
+              de privacidad | Terminos de uso | Politica de Cookies
+            </p>
+            <img src={complaintsBook.src} alt="complaintsBook" />
           </div>
-        </div>
-
-        <div className={style.footer_top_partners}>
-          <h5>Somos Partners</h5>
-          <div className={style.footer_top_partners_images}>
-            <img src={googleCloud.src} alt="googleCloud" />
-            <img
-              src={googleMarketingPlatform.src}
-              alt="googleMarketingPlatform"
-            />
-            <img src={salesforce.src} alt="salesforce" />
-            <img src={aws.src} alt="aws" />
-            <img src={hubspot.src} alt="hubspot" />
-          </div>
-        </div>
-
-        <div className={style.footer_top_afiliations}>
-          <h5>Afiliaciones</h5>
-          <div className={style.footer_top_afiliations_images}>
-            <img src={afiliation.src} alt="afiliation" />
-          </div>
-        </div>
-
-        <div className={style.footer_top_border}></div>
-      </div>
-
-      <div className={style.footer_bottom}>
-        <div className={style.footer_bottom_images}>
-          <img src={logoNeo.src} alt="neo" />
           <p>
             © 2022 NEO Consulting - Todos los derechos reservados | Política de
             privacidad | Terminos de uso | Politica de Cookies
           </p>
-          <img src={complaintsBook.src} alt="complaintsBook" />
         </div>
-        <p>
-          © 2022 NEO Consulting - Todos los derechos reservados | Política de
-          privacidad | Terminos de uso | Politica de Cookies
-        </p>
-      </div>
-    </motion.footer>
+      </motion.div>
+    </footer>
   );
 };
 

@@ -76,13 +76,13 @@ const Header = ({ scrolled }) => {
   ];
 
   return (
-    <motion.header
-      variants={navVariants}
-      initial="hidden"
-      whileInView="show"
-      className={`${style.header} ${scrolled && style.header_scrolled}`}
-    >
-      <div className={style.header_base}>
+    <header className={`${style.header} ${scrolled && style.header_scrolled}`}>
+      <motion.div
+        className={style.header_base}
+        variants={navVariants}
+        initial="hidden"
+        whileInView="show"
+      >
         <div className={style.header_base_left}>
           <button onClick={() => setShowMobileMenu(true)}>
             <img
@@ -142,7 +142,7 @@ const Header = ({ scrolled }) => {
         >
           <a href="#">Contáctanos</a>
         </button>
-      </div>
+      </motion.div>
 
       <div
         className={style.header_mobile_active}
@@ -151,6 +151,9 @@ const Header = ({ scrolled }) => {
             ? { transform: "translateX(0)" }
             : { transform: "translateX(-100%)" }
         }
+        variants={navVariants}
+        initial="hidden"
+        whileInView="show"
       >
         <div className={style.header_mobile_active_head}>
           <img
@@ -173,7 +176,7 @@ const Header = ({ scrolled }) => {
           <Accordion data={AccordionData} />
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 };
 
