@@ -6,6 +6,9 @@ import hubspot from "../../../public/assets/Partners/hubspot.png";
 import salesforce from "../../../public/assets/Partners/salesforce.png";
 import style from "../Companies.module.scss";
 
+import { motion } from "framer-motion";
+import { fadeIn, slideIn } from "../../../utilities/motion";
+
 const Partners = () => {
   const partnerImg = [
     aws,
@@ -17,15 +20,22 @@ const Partners = () => {
 
   return (
     <div className={style.companies}>
-      <h2 className={style.companies_title}>Somos Partners</h2>
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        variants={fadeIn("up", "tween", 0.2, 1)}
+      >
+        <h2 className={style.companies_title}>Somos Partners</h2>
 
-      <div className={style.companies_container}>
-        {partnerImg.map((img) => (
-          <div className={style.companies_container_img} key={uuid()}>
-            <img src={img.src} alt="partners" />
-          </div>
-        ))}
-      </div>
+        <div className={style.companies_container}>
+          {partnerImg.map((img) => (
+            <motion.div className={style.companies_container_img} key={uuid()}>
+              <img src={img.src} alt="partners" />
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };

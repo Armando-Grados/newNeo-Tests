@@ -17,6 +17,9 @@ import salesforce from "../../public/assets/Partners/salesforce.png";
 import complaintsBook from "../../public/assets/Footer/complaints-book.png";
 import logoNeo from "../../public/assets/Footer/logo-neo.png";
 
+import { motion } from "framer-motion";
+import { footerVariants } from "../../utilities/motion";
+
 const Footer = () => {
   const AccordionData = [
     {
@@ -73,7 +76,12 @@ const Footer = () => {
   ];
 
   return (
-    <div className={style.footer}>
+    <motion.footer
+      className={style.footer}
+      variants={footerVariants}
+      initial="hidden"
+      whileInView="show"
+    >
       <div className={style.footer_top}>
         <Accordion data={AccordionData} />
 
@@ -142,7 +150,7 @@ const Footer = () => {
           privacidad | Terminos de uso | Politica de Cookies
         </p>
       </div>
-    </div>
+    </motion.footer>
   );
 };
 

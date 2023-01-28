@@ -21,6 +21,8 @@ import "swiper/css/pagination";
 // import required modules
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
 
+import { motion } from "framer-motion";
+
 const Testimonials = () => {
   const testimonialData = [
     {
@@ -56,7 +58,12 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className={style.testimonials}>
+    <motion.div
+      className={style.testimonials}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+    >
       <h2 className={style.testimonials_title}>
         Nuestros clientes nos recomiendan
       </h2>
@@ -125,7 +132,7 @@ const Testimonials = () => {
           })}
         </Swiper>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -6,11 +6,19 @@ import rimac from "../../../public/assets/Trust/rimac.png";
 import style from "../Companies.module.scss";
 import uuid from "react-uuid";
 
+import { motion } from "framer-motion";
+import { zoomIn } from "../../../utilities/motion";
+
 const Companies = () => {
   const compImg = [rimac, protecta, abbott, semana, intersegura];
 
   return (
-    <div className={style.companies}>
+    <motion.div
+      className={style.companies}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: "full" }}
+    >
       <h2 className={style.companies_title}>
         Algunas empresas que ya confían en nosotros.
       </h2>
@@ -18,13 +26,17 @@ const Companies = () => {
       <div className={style.companies_container}>
         {compImg.map((img) => {
           return (
-            <div className={style.companies_container_img} key={uuid()}>
+            <motion.div
+              className={style.companies_container_img}
+              key={uuid()}
+              variants={zoomIn(0, 1.5)}
+            >
               <img src={img.src} alt={`companies`} />
-            </div>
+            </motion.div>
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,9 +1,15 @@
 import style from "./Card.module.scss";
 import vector from "../../../../public/assets/SVGs/Vector.svg";
 
+import { motion } from "framer-motion";
+import { slideIn } from "../../../../utilities/motion";
+
 const Card = ({ data }) => {
   return (
-    <div className={style.card}>
+    <motion.div
+      className={style.card}
+      variants={slideIn("down", "tween", 0, 1)}
+    >
       <div className={style.card_quote}>
         <img src={data.logo} />
         <p>{data.quote}</p>
@@ -27,7 +33,7 @@ const Card = ({ data }) => {
           <img src={vector.src} alt="vector" />
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

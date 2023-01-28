@@ -21,6 +21,9 @@ import window from "../../public/assets/Header/window.svg";
 import videoChat from "../../public/assets/Header/video-chat-line.svg";
 import uuid from "react-uuid";
 
+import { motion } from "framer-motion";
+import { navVariants } from "../../utilities/motion";
+
 const Header = ({ scrolled }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -73,7 +76,12 @@ const Header = ({ scrolled }) => {
   ];
 
   return (
-    <header className={`${style.header} ${scrolled && style.header_scrolled}`}>
+    <motion.header
+      variants={navVariants}
+      initial="hidden"
+      whileInView="show"
+      className={`${style.header} ${scrolled && style.header_scrolled}`}
+    >
       <div className={style.header_base}>
         <div className={style.header_base_left}>
           <button onClick={() => setShowMobileMenu(true)}>
@@ -165,7 +173,7 @@ const Header = ({ scrolled }) => {
           <Accordion data={AccordionData} />
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

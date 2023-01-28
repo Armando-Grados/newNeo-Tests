@@ -13,9 +13,19 @@ import "swiper/css/pagination";
 
 import { peruCases } from "../../utilities/home/cases";
 import Case from "./_children/Case/Case.jsx";
+
+import { motion } from "framer-motion";
+import { staggerContainer } from "../../utilities/motion";
+
 const SuccessCase = () => {
   return (
-    <div className={style.success}>
+    <motion.div
+      className={style.success}
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+    >
       <div className={style.success_container}>
         <Swiper
           // install Swiper modules
@@ -72,7 +82,7 @@ const SuccessCase = () => {
           )}
         </Swiper>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

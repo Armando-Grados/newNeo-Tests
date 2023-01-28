@@ -2,6 +2,9 @@ import style from "./Content.module.scss";
 import Card from "./_children/Card/Card.jsx";
 import uuid from "react-uuid";
 
+import { motion } from "framer-motion";
+import { fadeIn } from "../../utilities/motion";
+
 const Content = ({ contents }) => {
   /* const [contents, setContents] = useState([]);
 
@@ -23,7 +26,13 @@ const Content = ({ contents }) => {
   }, []); */
 
   return (
-    <div className={style.content}>
+    <motion.div
+      className={style.content}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={fadeIn("up", "tween", 0, 1)}
+    >
       <h1 className={style.content_heading}>Contenido para ti</h1>
 
       <div className={style.content_container}>
@@ -34,7 +43,7 @@ const Content = ({ contents }) => {
           <Card content={content} key={uuid()} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

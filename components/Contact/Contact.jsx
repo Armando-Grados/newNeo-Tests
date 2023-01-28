@@ -1,10 +1,20 @@
-import React from 'react'
-import style from './Contact.module.scss'
-import contactImg from '../../public/assets/Contact/contact.png'
-import Link from 'next/link'
+import React from "react";
+import style from "./Contact.module.scss";
+import contactImg from "../../public/assets/Contact/contact.png";
+import Link from "next/link";
+
+import { motion } from "framer-motion";
+import { zoomIn } from "../../utilities/motion";
+
 const Contact = () => {
   return (
-    <div className={style.contact}>
+    <motion.div
+      className={style.contact}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={zoomIn(0, 0.5)}
+    >
       <div className={`${style.contact_container}`}>
         <div className={style.contact_container_left}>
           <h2 className={style.contact_container_left_title}>
@@ -35,8 +45,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>
-  )
-}
+    </motion.div>
+  );
+};
 
-export default Contact
+export default Contact;

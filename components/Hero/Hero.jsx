@@ -1,21 +1,31 @@
-import Link from 'next/link'
-import style from './Hero.module.scss'
-import view1 from '../../public/assets/Hero/view-1-mobile.png'
-import view1Desk from '../../public/assets/Hero/view-1-desktop.png'
+import Link from "next/link";
+import style from "./Hero.module.scss";
+import view1 from "../../public/assets/Hero/view-1-mobile.png";
+import view1Desk from "../../public/assets/Hero/view-1-desktop.png";
 
-import arrowRight from '../../public/assets/Hero/arrow-right-white.svg'
-import { Navigation, Pagination, A11y } from 'swiper'
+import arrowRight from "../../public/assets/Hero/arrow-right-white.svg";
+import { Navigation, Pagination, A11y } from "swiper";
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import leftArrow from '../../public/assets/Swiper/left-arrow.svg'
-import rightArrow from '../../public/assets/Swiper/right-arrow.svg'
+import { Swiper, SwiperSlide } from "swiper/react";
+import leftArrow from "../../public/assets/Swiper/left-arrow.svg";
+import rightArrow from "../../public/assets/Swiper/right-arrow.svg";
 // Import Swiper styles
-import 'swiper/css'
+import "swiper/css";
 // import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+import "swiper/css/pagination";
+
+import { motion } from "framer-motion";
+import { staggerContainer, slideIn } from "../../utilities/motion";
+
 const Hero = () => {
   return (
-    <section className={style.hero}>
+    <motion.section
+      className={style.hero}
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+    >
       <div className={style.hero_container}>
         <Swiper
           // install Swiper modules
@@ -25,33 +35,36 @@ const Hero = () => {
           navigation={{
             nextEl: `.${style.swiper_button_next_cases}`,
             prevEl: `.${style.swiper_button_prev_cases}`,
-            disabledClass: 'swiper-button-disabled'
+            disabledClass: "swiper-button-disabled",
           }}
           pagination={{
             clickable: true,
-            el: '.swiper-pagination-home',
+            el: ".swiper-pagination-home",
             renderBullet: function (index, className) {
-              return '<span class="' + className + '"></span>'
-            }
+              return '<span class="' + className + '"></span>';
+            },
           }}
           scrollbar={{ draggable: true }}
         >
-          <div className='swiper-pagination-home'></div>
+          <div className="swiper-pagination-home"></div>
 
           <SwiperSlide>
-            <div className={style.hero_container_view}>
+            <motion.div
+              className={style.hero_container_view}
+              variants={slideIn("right", "tween", 0, 1)}
+            >
               <div
                 className={`${style.hero_container_swiper_button} ${style.swiper_button_next_cases}`}
               >
                 <span className={style.hero_container_swiper_button_span}>
                   Siguiente
                 </span>
-                <img src={rightArrow.src} alt='Casos de Exito Neo Consulting' />
+                <img src={rightArrow.src} alt="Casos de Exito Neo Consulting" />
               </div>
               <div
                 className={`${style.hero_container_swiper_button} ${style.swiper_button_prev_cases}`}
               >
-                <img src={leftArrow.src} alt='Casos de Exito Neo Consulting' />
+                <img src={leftArrow.src} alt="Casos de Exito Neo Consulting" />
                 <span className={style.hero_container_swiper_button_span}>
                   Anterior
                 </span>
@@ -63,13 +76,13 @@ const Hero = () => {
               <div className={style.hero_container_view_buttons}>
                 <Link
                   className={style.hero_container_view_buttons_contact}
-                  href={'/contact'}
+                  href={"/contact"}
                 >
                   Contáctanos
                 </Link>
                 <Link
                   className={style.hero_container_view_buttons_solutions}
-                  href={'/solutions'}
+                  href={"/solutions"}
                 >
                   Ver Soluciones
                   <span
@@ -77,7 +90,7 @@ const Hero = () => {
                       style.hero_container_view_buttons_solutions_arrow
                     }
                   >
-                    <img src={arrowRight.src} alt='' />
+                    <img src={arrowRight.src} alt="" />
                   </span>
                 </Link>
               </div>
@@ -176,29 +189,32 @@ const Hero = () => {
               <img
                 className={style.hero_container_view_img}
                 src={view1.src}
-                alt=''
+                alt=""
               />
               <img
                 className={style.hero_container_view_img_desktop}
                 src={view1Desk.src}
-                alt=''
+                alt=""
               />
-            </div>
+            </motion.div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className={style.hero_container_view}>
+            <motion.div
+              className={style.hero_container_view}
+              variants={slideIn("right", "tween", 0, 1)}
+            >
               <div
                 className={`${style.hero_container_swiper_button} ${style.swiper_button_next_cases}`}
               >
                 <span className={style.hero_container_swiper_button_span}>
                   Siguiente
                 </span>
-                <img src={rightArrow.src} alt='Casos de Exito Neo Consulting' />
+                <img src={rightArrow.src} alt="Casos de Exito Neo Consulting" />
               </div>
               <div
                 className={`${style.hero_container_swiper_button} ${style.swiper_button_prev_cases}`}
               >
-                <img src={leftArrow.src} alt='Casos de Exito Neo Consulting' />
+                <img src={leftArrow.src} alt="Casos de Exito Neo Consulting" />
                 <span className={style.hero_container_swiper_button_span}>
                   Anterior
                 </span>
@@ -210,13 +226,13 @@ const Hero = () => {
               <div className={style.hero_container_view_buttons}>
                 <Link
                   className={style.hero_container_view_buttons_contact}
-                  href={'/contact'}
+                  href={"/contact"}
                 >
                   Contáctanos
                 </Link>
                 <Link
                   className={style.hero_container_view_buttons_solutions}
-                  href={'/solutions'}
+                  href={"/solutions"}
                 >
                   Ver Soluciones
                   <span
@@ -224,7 +240,7 @@ const Hero = () => {
                       style.hero_container_view_buttons_solutions_arrow
                     }
                   >
-                    <img src={arrowRight.src} alt='' />
+                    <img src={arrowRight.src} alt="" />
                   </span>
                 </Link>
               </div>
@@ -323,19 +339,19 @@ const Hero = () => {
               <img
                 className={style.hero_container_view_img}
                 src={view1.src}
-                alt=''
+                alt=""
               />
               <img
                 className={style.hero_container_view_img_desktop}
                 src={view1Desk.src}
-                alt=''
+                alt=""
               />
-            </div>
+            </motion.div>
           </SwiperSlide>
         </Swiper>
       </div>
-    </section>
-  )
-}
+    </motion.section>
+  );
+};
 
-export default Hero
+export default Hero;
