@@ -53,6 +53,11 @@ body,
   font-family: "Montserrat Regular";
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
 h1,
 h2,
 h3,

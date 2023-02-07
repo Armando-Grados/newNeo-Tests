@@ -72,7 +72,7 @@ const Testimonials = () => {
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
-          slidesPerView={1.5}
+          slidesPerView={1.3}
           spaceBetween={40}
           initialSlide={1}
           centeredSlides={true}
