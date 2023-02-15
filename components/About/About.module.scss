@@ -1,0 +1,100 @@
+@import "../../styles/variables.module.scss";
+
+.about {
+  //   background-color: aquamarine;
+  &_container {
+    padding: map-get($padding, mobile) 0;
+    padding-left: map-get($padding, mobile);
+    padding-right: map-get($padding, mobile);
+    position: relative;
+
+    @include breakpoint(widescreen) {
+      padding-left: map-get($padding, widescreen);
+      padding-right: map-get($padding, widescreen);
+      max-width: map-get($breakpoint, max);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &_header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px;
+      gap: 24px;
+
+      h4 {
+        font-family: "Tiempos Headline";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 32px;
+        text-align: center;
+        color: map-get($color, primary);
+
+        @include breakpoint(widescreen) {
+          font-size: 64px;
+          line-height: 76px;
+        }
+      }
+
+      &_btn {
+        &_mobile {
+          background: #05058c;
+          cursor: pointer;
+          border-radius: 4px;
+          padding: 8px 24px;
+          color: map-get($color, white);
+
+          @include breakpoint(widescreen) {
+            display: none;
+          }
+        }
+
+        &_ws {
+          background: #05058c;
+          cursor: pointer;
+          border-radius: 4px;
+          padding: 16px;
+          font-weight: bold;
+          color: map-get($color, white);
+          display: none;
+
+          @include breakpoint(widescreen) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &_banners {
+      padding: map-get($padding, mobile);
+
+      &_mobile {
+        width: 288px;
+        height: 289px;
+        border-radius: 16px;
+        position: relative;
+        margin: 24px auto;
+
+        @include breakpoint(widescreen) {
+          display: none;
+        }
+      }
+
+      &_ws {
+        display: none;
+
+        @include breakpoint(widescreen) {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 0px;
+          gap: 33px;
+          overflow-x: auto;
+          padding: 64px 0;
+        }
+      }
+    }
+  }
+}
