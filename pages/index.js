@@ -16,6 +16,7 @@ import Footer from "../components/Footer/Footer";
 import { solutionsPeru } from "../utilities/home/solutions";
 import { peruCases } from "../utilities/home/cases";
 import About from "../components/About/About";
+import Trajectory from "../components/Trajectory/Trajectory";
 
 const index = () => {
   return (
@@ -23,6 +24,7 @@ const index = () => {
       <Header />
       <Hero />
       <About />
+      <Trajectory />
       <Solutions solutions={solutionsPeru} />
       <Partners />
       <SuccessCase cases={peruCases} />

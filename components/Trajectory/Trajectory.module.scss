@@ -1,0 +1,65 @@
+@import "../../styles/variables.module.scss";
+
+.trajectory {
+  background: map-get($color, accent);
+  margin-bottom: 64px;
+  color: map-get($color, white);
+
+  &_container {
+    padding: 64px map-get($padding, mobile);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+
+    @include breakpoint(widescreen) {
+      padding: 64px map-get($padding, widescreen);
+      max-width: map-get($breakpoint, max);
+      justify-content: space-between;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &_item {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 185px;
+
+      &_heading {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 48px;
+        text-align: center;
+
+        @include breakpoint(widescreen) {
+          font-weight: 700;
+          font-size: 40px;
+          line-height: 48px;
+        }
+      }
+
+      &_divider {
+        width: 112px;
+        height: 0px;
+        border: 0.5px solid map-get($color, white);
+      }
+
+      &_text {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+
+        @include breakpoint(widescreen) {
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}

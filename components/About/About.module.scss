@@ -3,14 +3,13 @@
 .about {
   //   background-color: aquamarine;
   &_container {
-    padding: map-get($padding, mobile) 0;
-    padding-left: map-get($padding, mobile);
-    padding-right: map-get($padding, mobile);
+    padding: map-get($padding, mobile);
     position: relative;
 
     @include breakpoint(widescreen) {
       padding-left: map-get($padding, widescreen);
       padding-right: map-get($padding, widescreen);
+      padding-bottom: 128px;
       max-width: map-get($breakpoint, max);
       margin-left: auto;
       margin-right: auto;
@@ -92,7 +91,7 @@
           padding: 0px;
           gap: 33px;
           overflow-x: auto;
-          padding: 64px 0;
+          padding-top: 64px;
         }
       }
     }
