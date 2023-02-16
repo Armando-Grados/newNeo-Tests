@@ -17,6 +17,9 @@ import { solutionsPeru } from "../utilities/home/solutions";
 import { peruCases } from "../utilities/home/cases";
 import About from "../components/About/About";
 import Trajectory from "../components/Trajectory/Trajectory";
+import MeetOurTeam from "../components/MeetOurTeam/MeetOurTeam";
+import { trajectoriesHome } from "../utilities/home/trajectories";
+import { collaborators } from "../utilities/home/collaborators";
 
 const index = () => {
   return (
@@ -24,7 +27,8 @@ const index = () => {
       <Header />
       <Hero />
       <About />
-      <Trajectory />
+      <Trajectory trajectories={trajectoriesHome} />
+      <MeetOurTeam collaborators={collaborators} />
       <Solutions solutions={solutionsPeru} />
       <Partners />
       <SuccessCase cases={peruCases} />

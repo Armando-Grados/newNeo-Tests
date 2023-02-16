@@ -1,13 +1,11 @@
 import style from "./Trajectory.module.scss";
 import uuid from "react-uuid";
 
-import { trajectoriesHome } from "../../utilities/home/trajectories";
-
-const Trajectory = () => {
+const Trajectory = ({ trajectories }) => {
   return (
     <div className={style.trajectory}>
       <div className={style.trajectory_container}>
-        {trajectoriesHome.map((trajectory) => (
+        {trajectories.map((trajectory) => (
           <div className={style.trajectory_container_item} key={uuid()}>
             <h4 className={style.trajectory_container_item_heading}>
               {trajectory.heading}

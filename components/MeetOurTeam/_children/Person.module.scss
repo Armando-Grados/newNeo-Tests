@@ -1,0 +1,44 @@
+@import "../../../styles/variables.module.scss";
+
+.person {
+  max-width: 140px;
+  position: relative;
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+  transition: all 0.4s ease-in;
+
+  &:hover {
+    filter: drop-shadow(0px 16px 24px rgba(0, 0, 51, 0.15));
+  }
+
+  @include breakpoint(widescreen) {
+    max-width: 260px;
+  }
+
+  &_img {
+    width: 100%;
+    border: 0.5px solid map-get($color, disabled);
+    border-radius: 8px 8px 0px 0px;
+  }
+
+  &_content {
+    width: 100%;
+    background-color: map-get($color, white);
+    border: 0.5px solid map-get($color, disabled);
+    border-radius: 0px 0px 8px 8px;
+    padding: 16px;
+
+    &_name {
+      font-weight: 700;
+      color: map-get($color, primary);
+      margin-bottom: 8px;
+    }
+
+    &_role {
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($color, primary);
+    }
+  }
+}

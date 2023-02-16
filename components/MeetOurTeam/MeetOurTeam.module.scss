@@ -1,0 +1,188 @@
+@import "../../styles/variables.module.scss";
+
+.meet {
+  padding: 64px map-get($padding, mobile);
+
+  @include breakpoint(widescreen) {
+    padding: map-get($padding, widescreen) 128px;
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 48px;
+
+    &_header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px;
+      gap: 32px;
+      position: relative;
+      width: 100%;
+
+      @include breakpoint(widescreen) {
+        max-width: 771px;
+        margin: 0 auto;
+      }
+
+      &_heading {
+        h2 {
+          font-family: "Tiempos Headline";
+          width: 100%;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 28px;
+          line-height: 32px;
+          text-align: center;
+          color: map-get($color, primary);
+          margin-bottom: 16px;
+
+          @include breakpoint(widescreen) {
+            font-size: 48px;
+            line-height: 56px;
+          }
+        }
+
+        p {
+          text-align: center;
+          color: map-get($color, secondary);
+
+          @include breakpoint(widescreen) {
+            font-size: 20px;
+            line-height: 24px;
+          }
+        }
+      }
+
+      &_select {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 32px;
+
+        @include breakpoint(widescreen) {
+          display: none;
+        }
+
+        &_teams {
+          border: 1px solid map-get($color, primary);
+          padding: 8px 16px;
+          border-radius: 16px;
+          width: 100%;
+
+          option {
+            padding: 8px 16px;
+            font-size: 14px;
+            line-height: 20px;
+            color: map-get($color, secondary);
+          }
+        }
+
+        &_btn {
+          background: map-get($color, accent);
+          padding: 8px 16px;
+          cursor: pointer;
+          border-radius: 4px;
+          color: map-get($color, white);
+        }
+      }
+    }
+
+    &_sector {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 93px;
+
+      &_container {
+        display: none;
+
+        @include breakpoint(widescreen) {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 0px;
+          gap: 48px;
+          isolation: isolate;
+        }
+
+        &_btn {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 0px;
+          gap: 32px;
+
+          &_active {
+            font-weight: 700;
+          }
+
+          button {
+            font-size: 20px;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            color: map-get($color, primary);
+            background-color: transparent;
+            text-align: left;
+            cursor: pointer;
+            transition: all ease 0.25s;
+
+            &:hover {
+              font-weight: 700;
+            }
+          }
+        }
+      }
+
+      &_team {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+        position: relative;
+        width: 100%;
+
+        &_container {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          padding: 0px;
+          gap: 8px;
+
+          @include breakpoint(widescreen) {
+            gap: 40px;
+            justify-content: flex-start;
+          }
+        }
+
+        &_vm {
+          margin: 0 auto;
+          display: flex;
+          flex-direction: row;
+          cursor: pointer;
+          align-items: center;
+          padding: 8px 16px;
+          gap: 4px;
+          border: 1px solid map-get($color, primary);
+          background-color: map-get($color, white);
+          border-radius: 4px;
+
+          span {
+            font-size: 14px;
+            line-height: 20px;
+            text-align: center;
+            color: map-get($color, primary);
+          }
+        }
+      }
+    }
+  }
+}
