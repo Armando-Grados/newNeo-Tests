@@ -68,6 +68,10 @@
 
     &_banners {
       padding: map-get($padding, mobile);
+      overflow-x: hidden;
+      width: 100%;
+      height: 29rem;
+      position: relative;
 
       &_mobile {
         width: 288px;
@@ -86,14 +90,32 @@
 
         @include breakpoint(widescreen) {
           display: flex;
-          flex-direction: row;
           align-items: center;
-          padding: 0px;
-          gap: 33px;
-          overflow-x: auto;
+          gap: 50px;
+          width: 200%;
           padding-top: 64px;
+          position: absolute;
+          animation: marquee 16s linear infinite;
+        }
+
+        &_part {
+          display: flex;
+          align-items: center;
+          gap: 35px;
+          width: 50%;
+          position: relative;
+          height: inherit;
         }
       }
     }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
   }
 }

@@ -134,11 +134,9 @@ const MeetOurTeam = ({ collaborators }) => {
             </div>
             <button
               className={style.meet_container_sector_team_vm}
-              onClick={() => setLimit(12)}
+              onClick={() => setLimit(limit + 6)}
               style={
-                collaborators[team].length < limit
-                  ? { pointerEvents: "none" }
-                  : {}
+                collaborators[team].length <= limit ? { display: "none" } : {}
               }
             >
               <span>Ver más</span>

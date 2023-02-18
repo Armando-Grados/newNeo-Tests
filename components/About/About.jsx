@@ -31,15 +31,30 @@ const About = () => {
 
         <div className={style.about_container_banners}>
           <div className={style.about_container_banners_mobile}>
-            <Image src={AboutBannerMobile.src} alt="About us" fill={true} />
+            <Image
+              src={AboutBannerMobile.src}
+              alt="About us"
+              /* width={288}
+              height={289} */
+              fill={true}
+            />
           </div>
 
           <div className={style.about_container_banners_ws}>
-            <Image src={About1.src} alt="About 1" width={324} height={283} />
-            <Image src={About2.src} alt="About 2" width={260} height={388} />
-            <Image src={About3.src} alt="About 3" width={244} height={241} />
-            <Image src={About4.src} alt="About 4" width={241} height={366} />
-            <Image src={About5.src} alt="About 5" width={309} height={257} />
+            <span className={style.about_container_banners_ws_part}>
+              <Image src={About1.src} alt="About 1" width={324} height={283} />
+              <Image src={About2.src} alt="About 2" width={260} height={388} />
+              <Image src={About3.src} alt="About 3" width={244} height={241} />
+              <Image src={About4.src} alt="About 4" width={241} height={366} />
+              <Image src={About5.src} alt="About 5" width={309} height={257} />
+            </span>
+            <span className={style.about_container_banners_ws_part}>
+              <Image src={About1.src} alt="About 1" width={324} height={283} />
+              <Image src={About2.src} alt="About 2" width={260} height={388} />
+              <Image src={About3.src} alt="About 3" width={244} height={241} />
+              <Image src={About4.src} alt="About 4" width={241} height={366} />
+              <Image src={About5.src} alt="About 5" width={309} height={257} />
+            </span>
           </div>
         </div>
       </div>
