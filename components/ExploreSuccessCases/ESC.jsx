@@ -2,6 +2,7 @@ import style from "./ESC.module.scss";
 import Card from "./_children/Card/Card";
 import { contentHome } from "../../utilities/home/content";
 import uuid from "react-uuid";
+import CasesNotFound from "./_children/Error/NotFound";
 
 const ExploreSuccessCases = () => {
   return (
@@ -48,6 +49,8 @@ const ExploreSuccessCases = () => {
             <Card content={content} key={uuid()} />
           ))}
         </div>
+
+        {/* <CasesNotFound /> */}
       </div>
     </div>
   );

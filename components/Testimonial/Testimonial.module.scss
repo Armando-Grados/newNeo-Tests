@@ -1,0 +1,80 @@
+@import "../../styles/variables.module.scss";
+
+.testimonial {
+  width: 100%;
+  position: relative;
+  padding: 2rem map-get($padding, mobile);
+  padding-top: 0;
+  margin: 4rem 0;
+
+  @include breakpoint(widescreen) {
+    padding-left: map-get($padding, widescreen);
+    padding-right: map-get($padding, widescreen);
+  }
+
+  &_container {
+    background: map-get($color, bg_page);
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 24px;
+    gap: 64px;
+    isolation: isolate;
+    position: relative;
+
+    &::before {
+      content: url("../../public/assets/Others/quotes.png");
+      position: absolute;
+      width: 105px;
+      height: 84px;
+      left: 38px;
+      top: -66px;
+
+      @include breakpoint(widescreen) {
+        left: 38px;
+        top: -42px;
+      }
+    }
+
+    @include breakpoint(widescreen) {
+      padding: 64px 69px;
+    }
+
+    &_text {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      color: map-get($color, primary);
+    }
+
+    &_client {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px;
+      gap: 8px;
+
+      &_img {
+        width: 72px;
+        height: 72px;
+      }
+
+      &_name {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: map-get($color, primary);
+      }
+
+      &_role {
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: map-get($color, primary);
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import vector from "../../../../public/assets/SVGs/Vector.svg";
 import PropTypes from "prop-types";
 
 const Card = ({ content }) => {
+  console.log(content.url);
   return (
     <div className={style.card}>
       <div className={style.card_img}>

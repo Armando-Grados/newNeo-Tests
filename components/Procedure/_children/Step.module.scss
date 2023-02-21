@@ -1,0 +1,58 @@
+@import "../../../styles/variables.module.scss";
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+
+  & img {
+    width: 24px;
+    height: 24px;
+
+    @include breakpoint(widescreen) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &_container {
+    &_no {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      color: map-get($color, primary);
+
+      @include breakpoint(widescreen) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+
+    &_heading {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+      color: map-get($color, primary);
+      margin-bottom: 8px;
+
+      @include breakpoint(widescreen) {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &_desc {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($color, primary);
+
+      @include breakpoint(widescreen) {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+}

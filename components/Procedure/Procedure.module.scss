@@ -1,0 +1,65 @@
+@import "../../styles/variables.module.scss";
+
+.procedure {
+  width: 100%;
+  position: relative;
+  padding: 0 map-get($padding, mobile);
+  padding-top: 3rem;
+  margin-bottom: 6rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  @include breakpoint(widescreen) {
+    padding-left: map-get($padding, widescreen);
+    padding-right: map-get($padding, widescreen);
+    margin-bottom: 8rem;
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+    max-width: 600px;
+
+    &_heading {
+      font-family: "Tiempos Headline";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+      color: map-get($color, primary);
+
+      @include breakpoint(widescreen) {
+        font-size: 48px;
+        line-height: 56px;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &_steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      @include breakpoint(widescreen) {
+        gap: 2rem;
+      }
+    }
+  }
+
+  &_img {
+    display: none;
+
+    @include breakpoint(widescreen) {
+      width: 613px;
+      height: 629px;
+      display: block;
+      background: #d9d9d9;
+      border-radius: 32px;
+    }
+  }
+}
