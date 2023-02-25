@@ -1,19 +1,17 @@
+import uuid from "react-uuid";
 import style from "./Procedure.module.scss";
 import Step from "./_children/Step";
 
-const Procedure = () => {
+const Procedure = ({ title, steps }) => {
   return (
     <div className={style.procedure}>
       <div className={style.procedure_container}>
-        <h2 className={style.procedure_container_heading}>
-          ¿Cómo lo logramos?
-        </h2>
+        <h2 className={style.procedure_container_heading}>{title}</h2>
 
         <div className={style.procedure_container_steps}>
-          <Step />
-          <Step />
-          <Step />
-          <Step />
+          {steps.map((step) => (
+            <Step step={step} key={uuid()} />
+          ))}
         </div>
       </div>
 

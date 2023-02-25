@@ -2,9 +2,44 @@ import style from "./ESC.module.scss";
 import Card from "./_children/Card/Card";
 import { contentHome } from "../../utilities/home/content";
 import uuid from "react-uuid";
-import CasesNotFound from "./_children/Error/NotFound";
+import CasesNotFound from "../Error/CaseNotFound";
+import { useState, useEffect } from "react";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const ExploreSuccessCases = () => {
+  const [loading, setLoading] = useState(true);
+  const [casesMetadata, setCasesMetadata] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        let storedMetadata = [];
+
+        // Get visible cases metadata
+        const caseQuery = query(
+          collection(db, "cases_metadata"),
+          where("visible", "==", true)
+        );
+        const caseSnapshot = await getDocs(caseQuery);
+        caseSnapshot.forEach((doc) => {
+          storedMetadata.push({
+            caseId: doc.id,
+            ...doc.data(),
+          });
+        });
+
+        setCasesMetadata(storedMetadata);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getData();
+  }, []);
+
   return (
     <div className={style.esc}>
       <div className={style.esc_container}>
@@ -44,13 +79,15 @@ const ExploreSuccessCases = () => {
           </div>
         </div>
 
-        <div className={style.esc_container_cases}>
-          {contentHome.map((content) => (
-            <Card content={content} key={uuid()} />
-          ))}
-        </div>
-
-        {/* <CasesNotFound /> */}
+        {!loading && casesMetadata.length > 0 ? (
+          <div className={style.esc_container_cases}>
+            {casesMetadata.map((content) => (
+              <Card content={content} key={uuid()} />
+            ))}
+          </div>
+        ) : (
+          <CasesNotFound />
+        )}
       </div>
     </div>
   );

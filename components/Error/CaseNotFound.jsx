@@ -1,5 +1,5 @@
-import style from "./NotFound.module.scss";
-import NotFound from "../../../../public/assets/NotFound/not-found.png";
+import style from "./CaseNotFound.module.scss";
+import NotFound from "../../public/assets/NotFound/not-found.png";
 
 const CasesNotFound = () => {
   return (
