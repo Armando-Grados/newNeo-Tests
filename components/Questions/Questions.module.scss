@@ -1,42 +1,44 @@
-@import '../../styles/variables.module.scss';
+@import "../../styles/variables.module.scss";
 
 .questions {
-    margin-bottom: map-get($margin , mobile);
+  margin-bottom: map-get($margin, mobile);
+
+  @include breakpoint(widescreen) {
+    margin-bottom: map-get($margin, widescreen);
+  }
+
+  &_container {
+    padding-left: map-get($padding, mobile);
+    padding-right: map-get($padding, mobile);
+    display: flex;
+    align-items: center;
 
     @include breakpoint(widescreen) {
-        margin-bottom: map-get($margin , widescreen);
+      padding-left: map-get($padding, widescreen);
+      padding-right: map-get($padding, widescreen);
+      max-width: map-get($breakpoint, max);
+      margin-left: auto;
+      margin-right: auto;
+      gap: 1rem;
     }
 
-    &_container {
-        padding-left: map-get($padding, mobile);
-        padding-right: map-get($padding, mobile);
-        display: flex;
-        align-items: center;
-
-        @include breakpoint(widescreen) {
-            padding-left: map-get($padding, widescreen);
-            padding-right: map-get($padding, widescreen);
-            max-width: map-get($breakpoint, max);
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @include breakpoint(max) {
-            gap: 46px;
-        }
-
-        &_left {
-            &_ctn {
-                &_img {
-                    display: none;
-
-                    @include breakpoint(widescreen) {
-                        display: block;
-                    }
-                }
-            }
-        }
-
-        &_right {}
+    @include breakpoint(max) {
+      gap: 46px;
     }
+
+    &_left {
+      &_ctn {
+        &_img {
+          display: none;
+
+          @include breakpoint(widescreen) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &_right {
+    }
+  }
 }

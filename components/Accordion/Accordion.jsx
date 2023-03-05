@@ -1,26 +1,27 @@
-import style from './Accordion.module.scss'
-import PropTypes from 'prop-types'
-import { useState } from 'react'
-import icon from '../../public/assets/Questions/icon.svg'
-import uuid from 'react-uuid'
+import style from "./Accordion.module.scss";
+import PropTypes from "prop-types";
+import { useState } from "react";
+import icon from "../../public/assets/Questions/icon.svg";
+import uuid from "react-uuid";
 
-const Accordion = ({ questions }) => {
-  const [selected, setSelected] = useState(0)
+const Accordion = ({ questions, questTitle, questDesc }) => {
+  const [selected, setSelected] = useState(0);
   const toggle = (i) => {
     if (selected === i) {
-      return setSelected(null)
+      return setSelected(null);
     }
-    setSelected(i)
-  }
+    setSelected(i);
+  };
   return (
     <div className={style.accordion}>
       <div className={style.accordion_container}>
         <h2 className={style.accordion_container_title}>
-          Preguntas frecuentes
+          {questTitle || "Preguntas frecuentes"}
         </h2>
         <p className={style.accordion_container_desc}>
-          Aclara todas tus dudas acerca de nuestras soluciones y cartera de
-          servicios.
+          {questDesc ||
+            `Aclara todas tus dudas acerca de nuestras soluciones y cartera de
+          servicios.`}
         </p>
         {questions.map(({ question, answer }, i) => {
           return (
@@ -37,10 +38,11 @@ const Accordion = ({ questions }) => {
                     className={
                       selected === i || selected === 0
                         ? style.accordion_container_title_icon_show
-                        : ''
+                        : ""
                     }
                     style={{
-                      transform: selected === i ? 'rotate(180deg)' : 'rotate(0)'
+                      transform:
+                        selected === i ? "rotate(180deg)" : "rotate(0)",
                     }}
                     src={icon.src}
                     width={24}
@@ -50,7 +52,7 @@ const Accordion = ({ questions }) => {
               </div>
               <div
                 className={`${style.accordion_container_content} ${
-                  selected === i ? style.show : ''
+                  selected === i ? style.show : ""
                 }`}
               >
                 <p className={style.accordion_container_content_desc}>
@@ -58,14 +60,14 @@ const Accordion = ({ questions }) => {
                 </p>
               </div>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 Accordion.propTypes = {
-  questions: PropTypes.array
-}
+  questions: PropTypes.array,
+};
 
-export default Accordion
+export default Accordion;

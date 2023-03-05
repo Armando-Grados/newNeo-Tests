@@ -1,5 +1,4 @@
 import style from "./Testimonial.module.scss";
-import JoseDuffoo from "../../public/assets/Clients/jose_duffoo.png";
 
 const Testimonial = ({ content }) => {
   return (

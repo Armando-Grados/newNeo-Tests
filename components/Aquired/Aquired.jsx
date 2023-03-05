@@ -1,6 +1,5 @@
 import uuid from "react-uuid";
 import style from "./Aquired.module.scss";
-import Stat from "./_children/Stat";
 
 const Aquired = ({ resultTitle, resultDesc, resultImages }) => {
   return (
@@ -12,11 +11,6 @@ const Aquired = ({ resultTitle, resultDesc, resultImages }) => {
         </div>
 
         <div className={style.aquired_container_stats}>
-          {/* <Stat />
-          <Stat />
-          <Stat />
-          <Stat />
-          <Stat /> */}
           {resultImages.map((imgSrc) => (
             <img src={imgSrc} key={uuid()} />
           ))}

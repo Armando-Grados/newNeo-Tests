@@ -1,0 +1,33 @@
+@import "../../styles/variables.module.scss";
+
+.caseTeam {
+  width: 100%;
+  position: relative;
+  padding: 3rem map-get($padding, mobile);
+  padding-top: 0;
+  margin-bottom: 2rem;
+  position: relative;
+
+  @include breakpoint(widescreen) {
+    padding-left: map-get($padding, widescreen);
+    padding-right: map-get($padding, widescreen);
+  }
+
+  &_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+
+    & img {
+      max-width: 400px;
+      border-radius: 12px;
+    }
+
+    @include breakpoint(widescreen) {
+      gap: 1.5rem;
+    }
+  }
+}

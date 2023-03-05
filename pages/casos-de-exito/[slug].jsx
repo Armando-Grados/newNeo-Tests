@@ -15,6 +15,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import uuid from "react-uuid";
 import CasesNotFound from "../../components/Error/CaseNotFound";
+import Questions from "../../components/Questions/Questions";
+import CaseTeam from "../../components/CaseTeam/CaseTeam";
 
 const Case = () => {
   const [caseContent, setCaseContent] = useState(null);
@@ -94,9 +96,9 @@ const Case = () => {
             <Challenge content={content} key={uuid()} />
           ))}
 
-          {caseContent.testimonials.map((content) => (
-            <Testimonial content={content} key={uuid()} />
-          ))}
+          {caseContent.testimonials.length > 0 && (
+            <Testimonial content={caseContent.testimonials[0]} key={uuid()} />
+          )}
 
           <Aquired
             resultDesc={caseContent.resultDesc}
@@ -104,13 +106,35 @@ const Case = () => {
             resultImages={caseContent.resultImages}
           />
 
+          {caseContent.testimonials.length > 1 && (
+            <Testimonial content={caseContent.testimonials[1]} key={uuid()} />
+          )}
+
+          {caseContent.teamImgUrl.length > 0 && (
+            <CaseTeam imgUrls={caseContent.teamImgUrl} />
+          )}
+
+          <Questions questions={caseContent.questions} caseImg />
+
+          {caseContent.testimonials.length > 2 && (
+            <Testimonial content={caseContent.testimonials[2]} key={uuid()} />
+          )}
+
           <Procedure
             title={caseContent.procedureTitle}
             steps={caseContent.steps}
           />
 
+          {caseContent.testimonials.length > 3 && (
+            <Testimonial content={caseContent.testimonials[3]} key={uuid()} />
+          )}
+
           {solutions && (
             <Solutions solutions={solutions} title={"Equipos Involucrados"} />
+          )}
+
+          {caseContent.testimonials.length > 4 && (
+            <Testimonial content={caseContent.testimonials[4]} key={uuid()} />
           )}
 
           <Contact contactUrl={caseContent.contactUrl} />

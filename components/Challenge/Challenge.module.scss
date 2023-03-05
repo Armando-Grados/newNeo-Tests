@@ -23,6 +23,7 @@
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+    flex-grow: 1;
 
     @include breakpoint(widescreen) {
       max-width: 720px;
@@ -42,31 +43,46 @@
       }
     }
 
-    & p {
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 20px;
-      color: map-get($color, primary);
+    &_descs {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
 
-      @include breakpoint(widescreen) {
-        font-size: 18px;
-        line-height: 24px;
+      & p {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: map-get($color, primary);
+
+        @include breakpoint(widescreen) {
+          font-size: 18px;
+          line-height: 24px;
+        }
       }
     }
   }
 
-  &_img {
-    max-width: 284px;
-    height: 260px;
-    width: 100%;
+  &_company {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 24px;
+    gap: 8px;
+    max-width: 401px;
+    background: map-get($color, bg_page);
+    border-radius: 24px;
 
-    background: #d9d9d9;
-    border-radius: 16px;
+    & img {
+      width: 189px;
+      margin: 0 auto;
+    }
 
-    @include breakpoint(widescreen) {
-      max-width: 507px;
-      height: 464px;
-      border-radius: 32px;
+    & p {
+      color: map-get($color, primary);
+    }
+
+    &_industry {
+      font-weight: bold;
     }
   }
 }
