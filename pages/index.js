@@ -20,12 +20,15 @@ import Trajectory from "../components/Trajectory/Trajectory";
 import MeetOurTeam from "../components/MeetOurTeam/MeetOurTeam";
 import { trajectoriesHome } from "../utilities/home/trajectories";
 import { collaborators } from "../utilities/home/collaborators";
+import Services from "../components/Services/Services";
+import { servicesHome } from "../utilities/home/services";
 
 const index = () => {
   return (
     <>
       <Header />
       <Hero />
+      <Services services={servicesHome} />
       <About />
       <Trajectory trajectories={trajectoriesHome} />
       <MeetOurTeam collaborators={collaborators} />

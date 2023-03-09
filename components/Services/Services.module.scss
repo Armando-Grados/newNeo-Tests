@@ -1,0 +1,244 @@
+@import "../../styles/variables.module.scss";
+
+.services {
+  width: 100%;
+  position: relative;
+  padding: 0 map-get($padding, mobile);
+  margin-bottom: 64px;
+
+  @include breakpoint(widescreen) {
+    padding: 0 map-get($padding, widescreen);
+    margin-bottom: 128px;
+  }
+
+  &_heading {
+    font-family: "Tiempos Headline";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 24px;
+    color: map-get($color, primary);
+
+    @include breakpoint(widescreen) {
+      font-size: 48px;
+      line-height: 56px;
+      margin-bottom: 48px;
+    }
+  }
+
+  &_tabs {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    margin-bottom: 32px;
+    width: 100%;
+
+    @include breakpoint(widescreen) {
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+
+    &_tab {
+      padding: 16px;
+      border-radius: 8px 8px 0px 0px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      border-bottom: 4px solid #9999ad;
+      opacity: 0.75;
+
+      @include breakpoint(widescreen) {
+        font-size: 20px;
+        line-height: 24px;
+        padding: 16px 48px 16px 24px;
+      }
+
+      &_active {
+        padding: 16px;
+        border-radius: 8px 8px 0px 0px;
+        font-weight: 700;
+        white-space: nowrap;
+        cursor: pointer;
+        border-bottom: 4px solid map-get($color, accent);
+        background: map-get($color, bg_page);
+
+        @include breakpoint(widescreen) {
+          font-size: 20px;
+          line-height: 24px;
+          padding: 16px 48px 16px 24px;
+        }
+      }
+    }
+  }
+
+  &_container {
+    &_service {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px;
+      gap: 48px;
+      margin-bottom: 48px;
+
+      &_title {
+        font-family: "Tiempos Headline";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        color: map-get($color, primary);
+
+        @include breakpoint(widescreen) {
+          display: none;
+        }
+      }
+
+      &_desc {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        color: map-get($color, primary);
+
+        @include breakpoint(widescreen) {
+          max-width: 614px;
+          font-size: 18px;
+          line-height: 24px;
+        }
+      }
+
+      &_part {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        gap: 24px;
+        padding: 0 map-get($padding, mobile);
+
+        @include breakpoint(widescreen) {
+          flex-direction: row;
+          &:last-child {
+            flex-direction: row-reverse;
+          }
+        }
+
+        &_image {
+          width: 288px;
+          height: 288px;
+          background: #ffffff;
+          border-radius: 22.551px;
+
+          @include breakpoint(widescreen) {
+            width: 613px;
+            height: 613px;
+          }
+        }
+
+        &_meta {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 0px;
+          gap: 16px;
+
+          @include breakpoint(widescreen) {
+            justify-content: center;
+            align-items: flex-start;
+            gap: 32px;
+          }
+
+          &_name {
+            font-family: "Tiempos Headline";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            color: map-get($color, primary);
+
+            @include breakpoint(widescreen) {
+              font-size: 36px;
+              line-height: 44px;
+              text-align: left;
+            }
+          }
+
+          &_content {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            color: map-get($color, secondary);
+
+            @include breakpoint(widescreen) {
+              font-size: 18px;
+              line-height: 24px;
+            }
+          }
+
+          &_container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 48px;
+
+            &_process {
+              display: flex;
+              flex-direction: row;
+              align-items: flex-start;
+              padding: 0px;
+              gap: 16px;
+
+              &_content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 16px;
+
+                & h5 {
+                  font-weight: 700;
+                  font-size: 16px;
+                  line-height: 20px;
+                  color: map-get($color, primary);
+
+                  @include breakpoint(widescreen) {
+                    font-size: 20px;
+                    line-height: 24px;
+                  }
+                }
+
+                & p {
+                  font-weight: 500;
+                  font-size: 14px;
+                  line-height: 20px;
+                  color: map-get($color, secondary);
+
+                  @include breakpoint(widescreen) {
+                    font-size: 18px;
+                    line-height: 24px;
+                  }
+                }
+              }
+            }
+          }
+
+          &_contact {
+            background: map-get($color, accent);
+            cursor: pointer;
+            border-radius: 4px;
+            padding: 16px;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 24px;
+            text-align: center;
+            color: map-get($color, white);
+          }
+        }
+      }
+    }
+  }
+}
