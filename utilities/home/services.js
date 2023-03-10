@@ -19,6 +19,7 @@ export const servicesHome = {
       contactUrl: "https://google.com",
     },
     {
+      reverse: true,
       title: "Soluciones con Data Science Consulting",
       coverImg: service1b.src,
       name: "Customer Life Value Prediction",
@@ -46,6 +47,7 @@ Incremento de satisfacción del cliente`,
       contactUrl: "https://google.com",
     },
     {
+      reverse: true,
       title: "Soluciones con Data Science And Analytics Consulting",
       coverImg: service2b.src,
       name: "Customer Segmentation",

@@ -43,7 +43,11 @@ const Services = ({ services }) => {
               {service.desc}
             </p>
 
-            <div className={style.services_container_service_part}>
+            <div
+              className={`${style.services_container_service_part} ${
+                service.reverse && style.reverse
+              }`}
+            >
               <img
                 src={service.coverImg}
                 alt={service.name}
