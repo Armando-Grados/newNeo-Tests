@@ -1,11 +1,11 @@
 import style from "./ESC.module.scss";
 import Card from "./_children/Card/Card";
-import { contentHome } from "../../utilities/home/content";
 import uuid from "react-uuid";
 import CasesNotFound from "../Error/CaseNotFound";
 import { useState, useEffect } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase";
+import LoadingIndicator from "../../public/assets/Gifs/iphone-spinner.gif";
 
 const ExploreSuccessCases = () => {
   const [loading, setLoading] = useState(true);
@@ -79,7 +79,15 @@ const ExploreSuccessCases = () => {
           </div>
         </div>
 
-        {!loading && casesMetadata.length > 0 ? (
+        {loading ? (
+          <div className={style.esc_container_cases}>
+            <img
+              src={LoadingIndicator.src}
+              alt="Loading..."
+              style={{ width: "4rem", height: "4rem" }}
+            />
+          </div>
+        ) : casesMetadata.length ? (
           <div className={style.esc_container_cases}>
             {casesMetadata.map((content) => (
               <Card content={content} key={uuid()} />

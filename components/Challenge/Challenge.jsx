@@ -1,5 +1,4 @@
 import style from "./Challenge.module.scss";
-import rimac from "../../public/assets/Others/rimac.png";
 
 const Challenge = ({ content }) => {
   return (
@@ -16,12 +15,16 @@ const Challenge = ({ content }) => {
 
       {/* <img className={style.challenge_img} src={content.imgUrl} /> */}
       <div className={style.challenge_company}>
-        <img src={content.companyLogoUrl} alt="company" />
-        <p>{content.companyDesc}</p>
+        <img src={content.empresaImgUrl} alt="company" />
+        <p>{content.empresaDesc}</p>
 
         <div>
           <p className={style.challenge_company_industry}>Industria:</p>
-          <p>Banca y seguros</p>
+          <p>{content.empresaIndustria}</p>
+        </div>
+        <div>
+          <p className={style.challenge_company_industry}>Pais:</p>
+          <p>{content.empresaPais}</p>
         </div>
       </div>
     </div>

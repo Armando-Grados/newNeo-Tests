@@ -8,15 +8,14 @@ import Challenge from "../../components/Challenge/Challenge";
 import Head from "next/head";
 import Testimonial from "../../components/Testimonial/Testimonial";
 import Aquired from "../../components/Aquired/Aquired";
-import Procedure from "../../components/Procedure/Procedure";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import uuid from "react-uuid";
-import CasesNotFound from "../../components/Error/CaseNotFound";
-import Questions from "../../components/Questions/Questions";
 import CaseTeam from "../../components/CaseTeam/CaseTeam";
+import CaseProcess from "../../components/CaseProcess/Process";
+import PageLoader from "../../components/Loading/PageLoader";
 
 const Case = () => {
   const [caseContent, setCaseContent] = useState(null);
@@ -66,9 +65,7 @@ const Case = () => {
     if (caseContent) {
       let storedSol = [];
       caseContent.services.forEach((value) => {
-        const solution = solutionsPeru.filter(
-          (sol) => sol.id === value.toLocaleLowerCase().replaceAll(" ", "_")
-        );
+        const solution = solutionsPeru.filter((sol) => sol.id === value.id);
 
         storedSol.push(solution[0]);
       });
@@ -77,22 +74,28 @@ const Case = () => {
     }
   }, [loading]);
 
+  if (loading) {
+    return <PageLoader />;
+  }
+
   return (
     <>
-      <Head>
-        <title>Success Case</title>
-      </Head>
-
-      <Header />
-
-      {!loading && caseContent ? (
+      {caseContent && !loading && (
         <>
+          <Head>
+            <title>{caseContent.caseTitle}</title>
+            <meta name="description" content={caseContent.caseDesc} />
+            <meta property="og:image" content={caseContent.caseMetaImgUrl} />
+          </Head>
+
+          <Header />
           <HeroCases
             title={caseContent.bannerTitle}
             imgUrl={caseContent.bannerImgUrl}
+            toolkitUrl={caseContent.bannerToolkitUrl}
           />
 
-          {caseContent.sections.map((content) => (
+          {caseContent.retos.map((content) => (
             <Challenge content={content} key={uuid()} />
           ))}
 
@@ -114,36 +117,30 @@ const Case = () => {
             <CaseTeam imgUrls={caseContent.teamImgUrl} />
           )}
 
-          <Questions questions={caseContent.questions} caseImg />
+          <CaseProcess
+            imgUrl={caseContent.processImgUrl}
+            steps={caseContent.steps}
+            processDesc={caseContent.processDesc}
+            processTitle={caseContent.processTitle}
+          />
 
           {caseContent.testimonials.length > 2 && (
             <Testimonial content={caseContent.testimonials[2]} key={uuid()} />
-          )}
-
-          <Procedure
-            title={caseContent.procedureTitle}
-            steps={caseContent.steps}
-          />
-
-          {caseContent.testimonials.length > 3 && (
-            <Testimonial content={caseContent.testimonials[3]} key={uuid()} />
           )}
 
           {solutions && (
             <Solutions solutions={solutions} title={"Equipos Involucrados"} />
           )}
 
-          {caseContent.testimonials.length > 4 && (
-            <Testimonial content={caseContent.testimonials[4]} key={uuid()} />
+          {caseContent.testimonials.length > 3 && (
+            <Testimonial content={caseContent.testimonials[3]} key={uuid()} />
           )}
 
           <Contact contactUrl={caseContent.contactUrl} />
-        </>
-      ) : (
-        <CasesNotFound />
-      )}
 
-      <Footer />
+          <Footer />
+        </>
+      )}
     </>
   );
 };
