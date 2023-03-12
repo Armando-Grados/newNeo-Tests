@@ -4,10 +4,10 @@ import Contact from "../../components/Contact/Contact";
 import Solutions from "../../components/Solutions/Solutions";
 import { solutionsPeru } from "../../utilities/home/solutions";
 import HeroCases from "../../components/HeroCases/HeroCases";
-import Challenge from "../../components/Challenge/Challenge";
+import SectionReto from "../../components/SectionReto/SectionReto";
 import Head from "next/head";
 import Testimonial from "../../components/Testimonial/Testimonial";
-import Aquired from "../../components/Aquired/Aquired";
+import Result from "../../components/Results/Results";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { doc, getDoc } from "firebase/firestore";
@@ -96,14 +96,14 @@ const Case = () => {
           />
 
           {caseContent.retos.map((content) => (
-            <Challenge content={content} key={uuid()} />
+            <SectionReto content={content} key={uuid()} />
           ))}
 
           {caseContent.testimonials.length > 0 && (
             <Testimonial content={caseContent.testimonials[0]} key={uuid()} />
           )}
 
-          <Aquired
+          <Result
             resultDesc={caseContent.resultDesc}
             resultTitle={caseContent.resultTitle}
             resultImages={caseContent.resultImages}
