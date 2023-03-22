@@ -22,12 +22,21 @@ import { trajectoriesHome } from "../utilities/home/trajectories";
 import { collaborators } from "../utilities/home/collaborators";
 import Services from "../components/Services/Services";
 import { servicesHome } from "../utilities/home/services";
+import WhySolutions from "../components/WhySolution/WhySolutions";
+import whySolHome from "../utilities/home/whySolutions";
+import ServicesPerks from "../components/ServicesPerks/ServicesPerks";
+import { perksContent } from "../utilities/home/services";
+import WorkProcess from "../components/WorkProcess/WorkProcess";
+import workProcessHome from "../utilities/home/workProcess";
 
 const index = () => {
   return (
     <>
       <Header />
       <Hero />
+      <WhySolutions data={whySolHome} />
+      <ServicesPerks data={perksContent} />
+      <WorkProcess processes={workProcessHome} />
       <Services services={servicesHome} />
       <About />
       <Trajectory trajectories={trajectoriesHome} />

@@ -1,0 +1,108 @@
+@import "../../styles/variables.module.scss";
+
+.ws {
+  width: 100%;
+  position: relative;
+  padding: 0 map-get($padding, mobile);
+  margin-bottom: 64px;
+
+  @include breakpoint(widescreen) {
+    padding: 0 map-get($padding, widescreen);
+    margin-bottom: 128px;
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    position: relative;
+    width: 100%;
+
+    @include breakpoint(widescreen) {
+      gap: 72px;
+    }
+
+    &_title {
+      font-family: "Tiempos Headline Medium";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      color: map-get($color, primary);
+      margin-bottom: 16px;
+
+      @include breakpoint(widescreen) {
+        font-size: 36px;
+        line-height: 44px;
+        margin-bottom: 32px;
+      }
+    }
+
+    &_desc {
+      font-family: "Montserrat Medium";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      color: map-get($color, primary);
+
+      @include breakpoint(widescreen) {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+
+    &_reasons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 16px;
+      overflow-x: scroll;
+      position: relative;
+
+      @include breakpoint(widescreen) {
+        gap: 24px;
+        flex-direction: row;
+      }
+
+      &_reason {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 16px;
+        min-width: 240px;
+        max-width: 400px;
+
+        & img {
+          width: 24px;
+          height: 24px;
+
+          @include breakpoint(widescreen) {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        & p {
+          font-family: "Montserrat Medium";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 20px;
+          color: map-get($color, primary);
+
+          @include breakpoint(widescreen) {
+            font-size: 18px;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+  }
+}

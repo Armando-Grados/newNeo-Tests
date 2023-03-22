@@ -2,6 +2,8 @@ import service1a from "../../public/assets/Services/service-1a.png";
 import service1b from "../../public/assets/Services/service-1b.png";
 import service2a from "../../public/assets/Services/service-2a.png";
 import service2b from "../../public/assets/Services/service-2b.png";
+import perksImg from "../../public/assets/Services/perks.png";
+import perkIcon from "../../public/assets/SVGs/stat.svg";
 
 export const servicesHome = {
   service1: [
@@ -60,4 +62,36 @@ Mejora de satisfacción de cliente`,
       contactUrl: "https://google.com",
     },
   ],
+};
+
+export const perksContent = {
+  coverImg: perksImg,
+  title: "¿Qué podrás lograr con este servicio?",
+  perks: [
+    {
+      text: "Utilizar algoritmos de aprendizaje automático para analizar los datos y extraer información valiosa.",
+      icon: perkIcon,
+    },
+    {
+      text: "Utilizar algoritmos de aprendizaje automático para analizar los datos y extraer información valiosa.",
+      icon: perkIcon,
+    },
+    {
+      text: "Utilizar algoritmos de aprendizaje automático para analizar los datos y extraer información valiosa.",
+      icon: perkIcon,
+    },
+    {
+      text: "Utilizar algoritmos de aprendizaje automático para analizar los datos y extraer información valiosa.",
+      icon: perkIcon,
+    },
+    {
+      text: "Identificar oportunidades de mejora optimizadas de una forma más eficiente.",
+      icon: perkIcon,
+    },
+    ,
+  ],
+  contact: {
+    text: "Conversemos",
+    link: "https://google.com",
+  },
 };
