@@ -28,6 +28,9 @@ import ServicesPerks from "../components/ServicesPerks/ServicesPerks";
 import { perksContent } from "../utilities/home/services";
 import WorkProcess from "../components/WorkProcess/WorkProcess";
 import workProcessHome from "../utilities/home/workProcess";
+import HeroRecruitment from "../components/HeroRecruitment/HeroRecruitment";
+import Differences from "../components/Differences/Differences";
+import differencesHome from "../utilities/home/differences";
 
 const index = () => {
   return (
@@ -37,6 +40,8 @@ const index = () => {
       <WhySolutions data={whySolHome} />
       <ServicesPerks data={perksContent} />
       <WorkProcess processes={workProcessHome} />
+      <HeroRecruitment />
+      <Differences differences={differencesHome} />
       <Services services={servicesHome} />
       <About />
       <Trajectory trajectories={trajectoriesHome} />
