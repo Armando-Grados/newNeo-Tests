@@ -1,81 +1,82 @@
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-import Contact from "../../components/Contact/Contact";
-import Solutions from "../../components/Solutions/Solutions";
-import { solutionsPeru } from "../../utilities/home/solutions";
-import HeroCases from "../../components/HeroCases/HeroCases";
-import SectionReto from "../../components/SectionReto/SectionReto";
-import Head from "next/head";
-import Testimonial from "../../components/Testimonial/Testimonial";
-import Result from "../../components/Results/Results";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../firebase";
-import uuid from "react-uuid";
-import CaseTeam from "../../components/CaseTeam/CaseTeam";
-import CaseProcess from "../../components/CaseProcess/Process";
-import PageLoader from "../../components/Loading/PageLoader";
+import Header from "../../components/Header/Header"
+import Footer from "../../components/Footer/Footer"
+import Contact from "../../components/Contact/Contact"
+import Solutions from "../../components/Solutions/Solutions"
+import { solutionsPeru } from "../../utilities/home/solutions"
+import HeroCases from "../../components/HeroCases/HeroCases"
+import SectionReto from "../../components/SectionReto/SectionReto"
+import Head from "next/head"
+import Testimonial from "../../components/Testimonial/Testimonial"
+import Result from "../../components/Results/Results"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/router"
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../../firebase"
+import uuid from "react-uuid"
+import CaseTeam from "../../components/CaseTeam/CaseTeam"
+import CaseProcess from "../../components/CaseProcess/Process"
+import PageLoader from "../../components/Loading/PageLoader"
+import ChallengesSection from "../../components/Challenges/Challenges"
 
 const Case = () => {
-  const [caseContent, setCaseContent] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [solutions, setSolutions] = useState([]);
+  const [caseContent, setCaseContent] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [solutions, setSolutions] = useState([])
 
-  const router = useRouter();
-  const { slug } = router.query;
+  const router = useRouter()
+  const { slug } = router.query
 
   useEffect(() => {
     const getCaseContent = async () => {
       try {
         // Check if case is visible
-        const caseMetadataRef = doc(db, "cases_metadata", slug);
-        const caseMetadataSnap = await getDoc(caseMetadataRef);
+        const caseMetadataRef = doc(db, "cases_metadata", slug)
+        const caseMetadataSnap = await getDoc(caseMetadataRef)
         if (caseMetadataSnap.exists()) {
           if (caseMetadataSnap.data().visible) {
             // Get case content
-            const caseContentRef = doc(db, "cases_content", slug);
-            const caseContentSnap = await getDoc(caseContentRef);
+            const caseContentRef = doc(db, "cases_content", slug)
+            const caseContentSnap = await getDoc(caseContentRef)
 
             if (caseContentSnap.exists()) {
-              setCaseContent(caseContentSnap.data());
+              setCaseContent(caseContentSnap.data())
             } else {
-              alert("Case content not found!");
+              alert("Case content not found!")
             }
           } else {
-            alert("Case is not published yet...");
+            alert("Case is not published yet...")
           }
         } else {
-          alert("Case not found!");
+          alert("Case not found!")
         }
       } catch (error) {
-        console.log(error);
+        console.log(error)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
     if (slug) {
-      getCaseContent();
+      getCaseContent()
     }
-  }, [slug]);
+  }, [slug])
 
   // Set solutions
   useEffect(() => {
     if (caseContent) {
-      let storedSol = [];
+      let storedSol = []
       caseContent.services.forEach((value) => {
-        const solution = solutionsPeru.filter((sol) => sol.id === value.id);
+        const solution = solutionsPeru.filter((sol) => sol.id === value.id)
 
-        storedSol.push(solution[0]);
-      });
+        storedSol.push(solution[0])
+      })
 
-      setSolutions(storedSol);
+      setSolutions(storedSol)
     }
-  }, [loading]);
+  }, [loading])
 
   if (loading) {
-    return <PageLoader />;
+    return <PageLoader />
   }
 
   return (
@@ -98,6 +99,15 @@ const Case = () => {
           {caseContent.retos.map((content) => (
             <SectionReto content={content} key={uuid()} />
           ))}
+
+          <ChallengesSection
+            challengesDesc1={caseContent.challengesDesc1}
+            challengesDesc2={caseContent.challengesDesc2}
+            challengesDesc3={caseContent.challengesDesc3}
+            challengesDesc4={caseContent.challengesDesc4}
+            challengesImgUrl={caseContent.challengesImgUrl}
+            challengesTitle={caseContent.challengesTitle}
+          />
 
           {caseContent.testimonials.length > 0 && (
             <Testimonial content={caseContent.testimonials[0]} key={uuid()} />
@@ -142,7 +152,7 @@ const Case = () => {
         </>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Case;
+export default Case

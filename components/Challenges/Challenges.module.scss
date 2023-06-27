@@ -21,7 +21,7 @@
     margin: 0 auto;
 
     @include breakpoint(widescreen) {
-      flex-direction: row-reverse;
+      flex-direction: row;
       flex-wrap: unset;
     }
 
@@ -69,27 +69,16 @@
       }
     }
 
-    &_company {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 32px 24px;
-      gap: 8px;
-      max-width: 401px;
-      background: map-get($color, bg_page);
-      border-radius: 24px;
+    &_coverImg {
+      width: 500px;
+      height: 600px;
+      position: relative;
 
       & img {
-        width: 189px;
-        margin: 0 auto;
-      }
-
-      & p {
-        color: map-get($color, primary);
-      }
-
-      &_industry {
-        font-weight: bold;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
       }
     }
   }
