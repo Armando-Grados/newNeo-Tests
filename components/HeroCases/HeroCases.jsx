@@ -1,5 +1,5 @@
 import style from "./HeroCases.module.scss";
-import belcorp from "../../public/assets/Services/Cases/belcorp.jpg";
+// import belcorp from "../../public/assets/Services/Cases/belcorp.jpg";
 
 const HeroCases = ({ title, imgUrl, toolkitUrl }) => {
   return (

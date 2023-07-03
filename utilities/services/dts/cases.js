@@ -1,5 +1,5 @@
 import rimacImg from '../../../public/assets/Services/Cases/rimac-desktop.jpg'
-import belcorpImgMob from '../../../public/assets/Services/Cases/belcorp-mobile.jpg'
+// import belcorpImgMob from '../../../public/assets/Services/Cases/belcorp-mobile.jpg'
 import soksoDesktop from '../../../public/assets/Services/Cases/sokso-desktop.jpg'
 import entelDesktop from '../../../public/assets/Services/Cases/entel-desktop.jpg'
 import ferreycorpDesktop from '../../../public/assets/Services/Cases/ferreycorp-desktop.jpg'

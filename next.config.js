@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    unoptimized: true,
+  },
+  // basePath: '/casos-de-exito-neo-consulting-beta',
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
@@ -37,8 +41,11 @@ const nextConfig = {
         source: '/pe/servicios/marketing-automation/',
         destination: '/localized_files_2/es_pe/servicios/mkt/mkt'
       }
+      // {
+      //   source: '/casos-de-exito-neo-consulting/**',
+      //   destination: '/localized_files_2/es_pe/servicios/mkt/mkt'
+      // }
     ]
   }
 }
-
 module.exports = nextConfig

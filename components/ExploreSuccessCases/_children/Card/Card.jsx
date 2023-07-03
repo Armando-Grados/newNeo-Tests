@@ -7,7 +7,7 @@ const Card = ({ content }) => {
   return (
     <Link
       target="_blank"
-      href={`/casos-de-exito/${content.caseId}`}
+      href={`/${content.caseId}`}
       rel="noreferrer"
     >
       <div className={`${style.card} ${style.card_bordered}`}>

@@ -1,20 +1,21 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA4S0UvUtth9JlaFH9trN6LIuuBLtb3Xyg",
-  authDomain: "neo-cms-next.firebaseapp.com",
-  projectId: "neo-cms-next",
-  storageBucket: "neo-cms-next.appspot.com",
-  messagingSenderId: "458609773994",
-  appId: "1:458609773994:web:6829864a6a5c088741efd3",
-};
+  apiKey: "AIzaSyC5hUyetFI48VPkaEb4A5vjqdzTETHXfTo",
+  authDomain: "blog-neo.firebaseapp.com",
+  databaseURL: "https://blog-neo.firebaseio.com",
+  projectId: "blog-neo",
+  storageBucket: "blog-neo.appspot.com",
+  messagingSenderId: "163045984594",
+  appId: "1:163045984594:web:39a36f5e60b8e3a5fb928b"
+}
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
+// Initialize Firerbase
+const app = initializeApp(firebaseConfig)
+const db = getFirestore(app)
+const auth = getAuth(app)
 
-export { db, auth };
+export { db, auth }
