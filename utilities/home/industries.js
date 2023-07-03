@@ -1,0 +1,15 @@
+export const industries = [
+  "Retail",
+  "Gobierno",
+  "Banca",
+  "Seguros",
+  "Laboratorios farmaceuticos",
+  "Textil",
+  "Belleza",
+  "Educacion",
+  "Salud",
+  "Telecomunicaciones",
+  "Entretenimiento",
+  "Industrial",
+  "Alimentos y bebidas",
+]

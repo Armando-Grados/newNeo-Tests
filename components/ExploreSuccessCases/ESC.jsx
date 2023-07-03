@@ -6,11 +6,12 @@ import { useState, useEffect } from "react"
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../../firebase"
 import LoadingIndicator from "../../public/assets/Gifs/iphone-spinner.gif"
+import { industries } from "../../utilities/home/industries"
 
 const ExploreSuccessCases = () => {
   const [loading, setLoading] = useState(true)
   const [casesMetadata, setCasesMetadata] = useState([])
-  const [industry, setIndustry] = useState("banca")
+  const [industry, setIndustry] = useState("all")
   const [filteredCases, setFilteredCases] = useState([])
 
   useEffect(() => {
@@ -44,10 +45,14 @@ const ExploreSuccessCases = () => {
 
   useEffect(() => {
     if (!loading) {
-      const filtered = casesMetadata.filter(
-        (caseMetadata) =>
-          caseMetadata.caseIndustry.toLowerCase() === industry.toLowerCase()
-      )
+      const filtered =
+        industry === "all"
+          ? casesMetadata
+          : casesMetadata.filter(
+              (caseMetadata) =>
+                caseMetadata.caseIndustry.toLowerCase() ===
+                industry.toLowerCase()
+            )
 
       setFilteredCases(filtered)
     }
@@ -85,21 +90,12 @@ const ExploreSuccessCases = () => {
               value={industry}
               onChange={(e) => setIndustry(e.target.value)}
             >
-              <option value="retail">Retail</option>
-              <option value="goblerno">Goblerno</option>
-              <option value="banca">Banca</option>
-              <option value="seguros">Seguros</option>
-              <option value="Laboratorios farmaceuticos">
-                Laboratorios farmaceuticos
-              </option>
-              <option value="Textil">Textil</option>
-              <option value="Belleza">Belleza</option>
-              <option value="Educacion">Educacion</option>
-              <option value="Salud">Salud</option>
-              <option value="Telecomunicaciones">Telecomunicaciones</option>
-              <option value="Entretenimiento">Entretenimiento</option>
-              <option value="Industrial">Industrial</option>
-              <option value="Alimentos y bebidas">Alimentos y bebidas</option>
+              <option value="all">All</option>
+              {industries.map((ind) => (
+                <option value={ind.toLowerCase()} key={ind}>
+                  {ind}
+                </option>
+              ))}
             </select>
           </div>
         </div>

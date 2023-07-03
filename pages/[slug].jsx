@@ -109,9 +109,10 @@ const Case = () => {
             challengesTitle={caseContent.challengesTitle}
           />
 
-          {caseContent.testimonials.length > 0 && (
-            <Testimonial content={caseContent.testimonials[0]} key={uuid()} />
-          )}
+          {caseContent.testimonials.length > 0 &&
+            caseContent.testimonials[0].desc && (
+              <Testimonial content={caseContent.testimonials[0]} key={uuid()} />
+            )}
 
           <Result
             resultDesc={caseContent.resultDesc}
