@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // basePath: '/casos-de-exito-neo-consulting-beta',
+  basePath: '/casos-de-exito-neo-consulting-beta',
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
