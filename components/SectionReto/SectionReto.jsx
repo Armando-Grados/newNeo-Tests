@@ -1,6 +1,6 @@
-import style from "./SectionReto.module.scss";
+import style from "./SectionReto.module.scss"
 
-const SectionReto = ({ content }) => {
+const SectionReto = ({ content, industry }) => {
   return (
     <div className={style.reto}>
       <div className={style.reto_container}>
@@ -21,7 +21,7 @@ const SectionReto = ({ content }) => {
 
           <div>
             <p className={style.reto_container_company_industry}>Industria:</p>
-            <p>{content.empresaIndustria}</p>
+            <p>{industry}</p>
           </div>
           <div>
             <p className={style.reto_container_company_industry}>Pais:</p>
@@ -30,7 +30,7 @@ const SectionReto = ({ content }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SectionReto;
+export default SectionReto

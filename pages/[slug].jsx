@@ -97,7 +97,11 @@ const Case = () => {
           />
 
           {caseContent.retos.map((content) => (
-            <SectionReto content={content} key={uuid()} />
+            <SectionReto
+              content={content}
+              key={uuid()}
+              industry={caseContent.caseIndustry}
+            />
           ))}
 
           <ChallengesSection
@@ -109,10 +113,9 @@ const Case = () => {
             challengesTitle={caseContent.challengesTitle}
           />
 
-          {caseContent.testimonials.length > 0 &&
-            caseContent.testimonials[0].desc && (
-              <Testimonial content={caseContent.testimonials[0]} key={uuid()} />
-            )}
+          {caseContent.testimonials.length > 0 && (
+            <Testimonial content={caseContent.testimonials[0]} key={uuid()} />
+          )}
 
           <Result
             resultDesc={caseContent.resultDesc}
