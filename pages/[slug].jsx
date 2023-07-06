@@ -9,57 +9,16 @@ import Head from "next/head"
 import Testimonial from "../components/Testimonial/Testimonial"
 import Result from "../components/Results/Results"
 import { useState, useEffect } from "react"
-import { useRouter } from "next/router"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
 import uuid from "react-uuid"
 import CaseTeam from "../components/CaseTeam/CaseTeam"
 import CaseProcess from "../components/CaseProcess/Process"
-import PageLoader from "../components/Loading/PageLoader"
 import ChallengesSection from "../components/Challenges/Challenges"
+import CasesNotFound from "../components/Error/CaseNotFound"
 
-const Case = () => {
-  const [caseContent, setCaseContent] = useState(null)
-  const [loading, setLoading] = useState(true)
+const Case = ({ caseContent }) => {
   const [solutions, setSolutions] = useState([])
-
-  const router = useRouter()
-  const { slug } = router.query
-
-  useEffect(() => {
-    const getCaseContent = async () => {
-      try {
-        // Check if case is visible
-        const caseMetadataRef = doc(db, "cases_metadata", slug)
-        const caseMetadataSnap = await getDoc(caseMetadataRef)
-        if (caseMetadataSnap.exists()) {
-          if (caseMetadataSnap.data().visible) {
-            // Get case content
-            const caseContentRef = doc(db, "cases_content", slug)
-            const caseContentSnap = await getDoc(caseContentRef)
-
-            if (caseContentSnap.exists()) {
-              setCaseContent(caseContentSnap.data())
-            } else {
-              alert("Case content not found!")
-            }
-          } else {
-            alert("Case is not published yet...")
-          }
-        } else {
-          alert("Case not found!")
-        }
-      } catch (error) {
-        console.log(error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    if (slug) {
-      getCaseContent()
-    }
-  }, [slug])
 
   // Set solutions
   useEffect(() => {
@@ -73,15 +32,27 @@ const Case = () => {
 
       setSolutions(storedSol)
     }
-  }, [loading])
+  }, [])
 
-  if (loading) {
-    return <PageLoader />
+  if (!caseContent) {
+    return (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <CasesNotFound />
+      </div>
+    )
   }
 
   return (
     <>
-      {caseContent && !loading && (
+      {caseContent && (
         <>
           <Head>
             <title>{caseContent.caseTitle}</title>
@@ -160,3 +131,25 @@ const Case = () => {
 }
 
 export default Case
+
+export const getServerSideProps = async (context) => {
+  const { slug } = context.params
+
+  const caseMetadataRef = doc(db, "cases_metadata", slug)
+  const caseMetadataSnap = await getDoc(caseMetadataRef)
+
+  if (caseMetadataSnap.exists()) {
+    if (caseMetadataSnap.data().visible) {
+      const caseContentRef = doc(db, "cases_content", slug)
+      const caseContentSnap = await getDoc(caseContentRef)
+
+      if (caseContentSnap.exists()) {
+        return {
+          props: {
+            caseContent: caseContentSnap.data(),
+          },
+        }
+      }
+    }
+  }
+}
