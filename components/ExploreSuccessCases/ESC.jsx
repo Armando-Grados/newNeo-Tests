@@ -89,8 +89,9 @@ const ExploreSuccessCases = () => {
               id="industry"
               value={industry}
               onChange={(e) => setIndustry(e.target.value)}
+              defaultValue={"all"}
             >
-              <option value="all">All</option>
+              <option value="all">Todos</option>
               {industries.map((ind) => (
                 <option value={ind.toLowerCase()} key={ind}>
                   {ind}

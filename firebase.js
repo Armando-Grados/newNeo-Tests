@@ -1,6 +1,6 @@
-import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
-import { getAuth } from 'firebase/auth'
+import { initializeApp } from "firebase/app"
+import { getFirestore } from "firebase/firestore"
+import { getAuth } from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: "blog-neo",
   storageBucket: "blog-neo.appspot.com",
   messagingSenderId: "163045984594",
-  appId: "1:163045984594:web:39a36f5e60b8e3a5fb928b"
+  appId: "1:163045984594:web:39a36f5e60b8e3a5fb928b",
 }
 
 // Initialize Firerbase

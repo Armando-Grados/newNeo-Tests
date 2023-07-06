@@ -70,15 +70,16 @@
     }
 
     &_coverImg {
-      width: 500px;
-      height: 600px;
+      width: 100%;
+      height: 100%;
       position: relative;
+      max-width: 500px;
+      max-height: 600px;
 
       & img {
         width: 100%;
         height: 100%;
-        position: absolute;
-        inset: 0;
+        object-fit: contain;
       }
     }
   }
