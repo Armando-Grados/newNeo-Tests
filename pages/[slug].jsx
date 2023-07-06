@@ -149,6 +149,18 @@ export const getServerSideProps = async (context) => {
             caseContent: caseContentSnap.data(),
           },
         }
+      } else {
+        return {
+          props: {
+            caseContent: null,
+          },
+        }
+      }
+    } else {
+      return {
+        props: {
+          caseContent: null,
+        },
       }
     }
   }
