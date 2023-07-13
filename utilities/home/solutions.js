@@ -13,35 +13,35 @@ export const solutionsPeru = [
     service: 'Canales digitales y Growth Haking',
     id: 1,
     description: 'Atrae más clientes a través de Canales Digitales',
-    url: '/pe/servicios/canales-digitales-y-growth-hacking'
+    url: 'https://neoconsulting.ai/pe/servicios/canales-digitales-y-growth-hacking'
   },
   {
     iconSrc: iconEcommerce,
     service: 'E-commerce',
     id: 2,
     description: 'Desarrolla estrategias que impulsen tu tienda virtual',
-    url: '/pe/servicios/consultoria-ecommerce'
+    url: 'https://neoconsulting.ai/pe/servicios/consultoria-ecommerce'
   },
   {
     iconSrc: iconHh,
     id: 3,
     service: 'Headhunting y Mentoring',
     description: 'Recluta y forma talento digital de alto performace.',
-    url: '/pe/servicios/headhunting-y-mentoring'
+    url: 'https://neoconsulting.ai/pe/servicios/headhunting-y-mentoring'
   },
   {
     iconSrc: iconCrm,
     service: 'Consultoría CRM',
     id: 4,
     description: 'Crea, desarrolla y mejora la relación con tus clientes.',
-    url: '/pe/servicios/consultoria-customer-relationship-management'
+    url: 'https://neoconsulting.ai/pe/servicios/consultoria-customer-relationship-management'
   },
   {
     iconSrc: iconAnalitica,
     service: 'Analítica Digital e Inteligencia Artificial',
     id: 5,
     description: 'Mide, visualiza y capitaliza la data de tu empresa.',
-    url: '/pe/servicios/analitica-digital-inteligencia-artificial'
+    url: 'https://neoconsulting.ai/pe/servicios/analitica-digital-inteligencia-artificial'
   },
   {
     iconSrc: iconXd,
@@ -49,7 +49,7 @@ export const solutionsPeru = [
     id: 6,
     description:
       'Conoce y mejora la experiencia de los usuarios en mis activos digitales.',
-    url: '/pe/servicios/experience-design'
+    url: 'https://neoconsulting.ai/pe/servicios/experience-design'
   },
   {
     iconSrc: iconPublicidad,
@@ -57,7 +57,7 @@ export const solutionsPeru = [
     id: 7,
     description:
       'Logra tus objetivos de negocio usando medios digitales pagados.',
-    url: '/pe/servicios/digital-advertising'
+    url: 'https://neoconsulting.ai/pe/servicios/digital-advertising'
   },
   {
     iconSrc: iconMkt,
@@ -65,6 +65,6 @@ export const solutionsPeru = [
     id: 8,
     description:
       'Automatiza acciones de marketing, fidelización en la venta y postventa.',
-    url: '/pe/servicios/marketing-automation'
+    url: 'https://neoconsulting.ai/pe/servicios/marketing-automation'
   }
 ]

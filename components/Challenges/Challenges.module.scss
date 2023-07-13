@@ -3,8 +3,8 @@
 .reto {
   width: 100%;
   position: relative;
-  padding: 3rem map-get($padding, mobile);
-  margin-bottom: 2rem;
+  // padding: 3rem map-get($padding, mobile);
+  // margin-bottom: 2rem;
 
   @include breakpoint(widescreen) {
     padding-left: map-get($padding, widescreen);

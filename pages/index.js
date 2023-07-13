@@ -10,7 +10,29 @@ const Index = () => {
   return (
     <>
       <Head>
-        <title>Success Cases</title>
+        <title>Casos de Éxito | Neo Consulting</title>
+        <meta
+          name="description"
+          content="En nuestros casos de éxito podrás ver de qué manera nuestros clientes utilizan nuestras soluciones."
+        />
+        <meta
+          property="og:image"
+          content="https://wordpress.neoconsulting.ai/wp-content/uploads/2022/05/Frame-44-1-scaled.jpg"
+        />
+
+        <meta
+          property="og:url"
+          content="https://neoconsulting.ai/casos-de-exito/"
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Casos de Éxito | Neo Consulting" />
+        <meta
+          property="og:description"
+          content="En nuestros casos de éxito podrás ver de qué manera nuestros clientes utilizan nuestras soluciones."
+        />
+
+        <link rel="icon" href="/casos-de-exito-neo-consulting/favicon.ico" />
       </Head>
 
       <Header />

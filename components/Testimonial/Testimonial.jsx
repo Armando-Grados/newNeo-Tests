@@ -9,7 +9,6 @@ const Testimonial = ({ content }) => {
         <div className={style.testimonial_container_client}>
           <img
             src={content.clientImgUrl}
-            alt={content.clientName}
             className={style.testimonial_container_client_img}
           />
           <p className={style.testimonial_container_client_name}>

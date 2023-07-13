@@ -49,10 +49,10 @@ const ExploreSuccessCases = () => {
         industry === "all"
           ? casesMetadata
           : casesMetadata.filter(
-              (caseMetadata) =>
-                caseMetadata.caseIndustry.toLowerCase() ===
+            (caseMetadata) =>
+              caseMetadata.caseIndustry.toLowerCase() ===
                 industry.toLowerCase()
-            )
+          )
 
       setFilteredCases(filtered)
     }

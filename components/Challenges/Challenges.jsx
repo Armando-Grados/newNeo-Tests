@@ -22,7 +22,7 @@ const ChallengesSection = ({
         </div>
 
         <div className={style.reto_container_coverImg}>
-          <img src={challengesImgUrl} alt="sample image" />
+          <img src={challengesImgUrl} />
         </div>
       </div>
     </div>

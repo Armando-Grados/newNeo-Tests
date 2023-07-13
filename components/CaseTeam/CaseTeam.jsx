@@ -5,7 +5,7 @@ const CaseTeam = ({ imgUrls }) => {
     <div className={style.caseTeam}>
       <div className={style.caseTeam_container}>
         {imgUrls?.map((imgUrl, index) => (
-          <img src={imgUrl} alt="team" key={index} />
+          <img src={imgUrl} key={index} />
         ))}
       </div>
     </div>

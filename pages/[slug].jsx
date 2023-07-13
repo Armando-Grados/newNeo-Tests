@@ -112,7 +112,7 @@ const Case = () => {
           {caseContent.testimonials.length > 0 &&
             caseContent.testimonials[0].desc && (
               <Testimonial content={caseContent.testimonials[0]} key={uuid()} />
-            )}
+          )}
 
           <Result
             resultDesc={caseContent.resultDesc}

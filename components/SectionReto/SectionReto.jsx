@@ -16,13 +16,13 @@ const SectionReto = ({ content }) => {
 
         {/* <img className={style.reto_img} src={content.imgUrl} /> */}
         <div className={style.reto_container_company}>
-          <img src={content.empresaImgUrl} alt="company" />
+          <img src={content.empresaImgUrl} />
           <p>{content.empresaDesc}</p>
 
-          <div>
+          {/* <div>
             <p className={style.reto_container_company_industry}>Industria:</p>
             <p>{content.empresaIndustria}</p>
-          </div>
+          </div> */}
           <div>
             <p className={style.reto_container_company_industry}>Pais:</p>
             <p>{content.empresaPais}</p>

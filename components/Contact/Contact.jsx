@@ -40,7 +40,6 @@ const Contact = ({ service = "default", solution = "default", contactUrl }) => {
             <img
               className={style.contact_container_right_image_img}
               src={contactImg.src}
-              alt="Contáctanos Neo Consulting"
             />
           </div>
         </div>
