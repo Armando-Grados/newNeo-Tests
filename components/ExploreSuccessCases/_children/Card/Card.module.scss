@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   padding: 5px 1px;
   min-width: 280px;
   width: 300px;
@@ -18,7 +17,7 @@
 
   @include breakpoint(widescreen) {
     height: 580px;
-    width: 400px;
+    width: 350px;
   }
 
   &_bordered {
@@ -28,7 +27,7 @@
 
     @include breakpoint(widescreen) {
       height: 580px;
-      width: 400px;
+      width: 350px;
 
       &:hover {
         box-shadow: 0px 16px 24px rgba(0, 0, 51, 0.15);
@@ -142,9 +141,8 @@
         font-family: "Montserrat Medium";
         // @include truncate-text(6rem);
         color: map-get($color, secondary);
-
         @include breakpoint(widescreen) {
-          font-size: 18px;
+          font-size: 16px;
           line-height: 24px;
         }
       }
@@ -189,6 +187,9 @@
     order: 1;
     align-self: stretch;
     flex-grow: 0;
+    position: absolute;
+    bottom: 2%;
+    // width: 100%;
 
     & span {
       font-family: "Montserrat Bold";

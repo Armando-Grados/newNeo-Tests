@@ -61,7 +61,7 @@ export const successStories = [
     img: bcp,
     imgMob: bcp,
 
-    url: '#'
+    url: '/bcp_aumenta_15_veces_ventas_digitales_one_click_cross_sell/'
   },
   {
     type: 'Caso de éxito',
@@ -71,7 +71,7 @@ export const successStories = [
     img: sosko,
     imgMob: sosko,
 
-    url: '#'
+    url: '/transformacion_digital_sokso/'
   },
   {
     type: 'Caso de éxito',
@@ -81,6 +81,6 @@ export const successStories = [
     img: synlab,
     imgMob: synlab,
 
-    url: '#'
+    url: '/synlab_estrategia_digital/'
   }
 ]

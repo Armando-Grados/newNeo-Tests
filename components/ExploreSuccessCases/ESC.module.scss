@@ -20,7 +20,7 @@
     gap: 2rem;
 
     @include breakpoint(widescreen) {
-      gap: 3rem;
+      gap: 2rem;
     }
 
     &_header {
@@ -98,10 +98,11 @@
     &_cases {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 2rem 1rem;
       flex-wrap: wrap;
       @include breakpoint(widescreen) {
-        gap: 2rem 3.5rem;
+        gap: 2rem 2rem;
       }
     }
   }
